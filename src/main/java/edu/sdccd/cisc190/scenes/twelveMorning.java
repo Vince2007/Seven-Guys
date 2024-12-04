@@ -9,6 +9,7 @@ import javafx.stage.Stage;
 
 public class twelveMorning {
     private final Scene scene;
+    //TODO: make changes to conviction and madness
     private int conviction = 0;   // Variable to track the conviction stat
     private int madness = 0;      // Variable to track the madness stat
     private final Text gameStatus;
