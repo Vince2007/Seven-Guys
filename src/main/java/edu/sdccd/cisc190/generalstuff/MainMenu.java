@@ -1,5 +1,6 @@
 package edu.sdccd.cisc190.generalstuff;
 
+import edu.sdccd.cisc190.stats.GameState;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
@@ -9,17 +10,16 @@ import javafx.stage.Stage;
 
 public class MainMenu {
     private final Scene scene;
-    private int conviction; // stat for conviction
-    private int madness;   // stat for madness
 
     public MainMenu(Stage primaryStage) {
-        conviction = 0;  // Initial conviction
-        madness = 0;     // Initial madness
+        //TODO instantiate a gameState object throughout all your scenes to keep a running total of these stats.
+        GameState gameState = new GameState(0, 0);
 
         // Create the buttons and description text
         Button startButton = new Button("Unlock the door (+1 conviction, +1 madness)");
         Button exitButton = new Button("Don't Unlock the door");
 
+        //TODO: break text into chunks to make readable. This is reoccuring in the program so I suggest doing this for ALL your long wordy texts.
         Text description = new Text("You’re the new guy working in Seven Guys, a local burger shop that on the outside, is a fun and exciting place to eat at, " +
                 "filled with yummy food and a huge-ass party stage with cool party rooms, and of course, " +
                 "the main attraction: The High Fives. But behind closed doors, a different story appears.\n" +
@@ -38,11 +38,13 @@ public class MainMenu {
 
         // Action for unlocking the door: Increase conviction and madness, then transition to PreLude scene
         startButton.setOnAction(e -> {
-            conviction += 1;  // Increase conviction
-            madness += 1;     // Increase madness
+            //Call increaseConviction() and increaseMadness(), as these two methods were written in GameState.java
+
+            gameState.increaseConviction();
+            gameState.increaseMadness();
 
             // Pass conviction and madness to PreLude when transitioning
-            PreLude preludeScene = new PreLude(primaryStage, conviction, madness);
+            PreLude preludeScene = new PreLude(primaryStage, gameState.getConviction(), gameState.getMadness());
             primaryStage.setScene(preludeScene.getScene());
         });
 
@@ -50,7 +52,7 @@ public class MainMenu {
         exitButton.setOnAction(e -> primaryStage.close());
 
         // Create a text element to display stats
-        Text stats = new Text("Conviction: " + conviction + " | Madness: " + madness);
+        Text stats = new Text("Conviction: " + gameState.getConviction() + " | Madness: " + gameState.getMadness());
         stats.setStyle("-fx-font-size: 14px; -fx-font-weight: bold;");
 
         // Create the BorderPane layout

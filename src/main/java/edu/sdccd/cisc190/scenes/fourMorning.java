@@ -1,5 +1,6 @@
 package edu.sdccd.cisc190.scenes;
 
+import edu.sdccd.cisc190.stats.GameState;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
@@ -9,10 +10,8 @@ import javafx.stage.Stage;
 
 public class fourMorning {
     private Scene scene;
-    private int conviction; // Variable to track the conviction stat
-    private int madness; // Variable to track the madness stat
     private final Text gameStatus;
-    private final Text statsText;       // Text to display the stats
+    //private final Text statsText;       // Text to display the stats
 
     // Declare buttons as instance variables to use them in different methods
     private final Button oneButton;
@@ -40,10 +39,11 @@ public class fourMorning {
         gameStatus.setStyle("-fx-font-size: 14px; -fx-font-weight: bold;");
 
         // Text for displaying stats (conviction and madness)
-        statsText = new Text("Conviction: " + conviction + " | Madness: " + madness);
-        statsText.setStyle("-fx-font-size: 14px; -fx-font-weight: bold;");
+        //statsText = new Text("Conviction: " + GameState.getConviction() + " | Madness: " + GameState.getMadness());
+        //statsText.setStyle("-fx-font-size: 14px; -fx-font-weight: bold;");
 
-        // Initialize buttons
+        //TODO: delete this and write the enum
+        // TODO: alternatively, you can store these buttons in an array and loop through them
         oneButton = new Button("Kitchen time");
         twoButton = new Button("Investigate");
         threeButton = new Button("Bottle of water");
@@ -55,7 +55,7 @@ public class fourMorning {
         nineButton = new Button("Go Back");
         continueButton = new Button("Transition to 5 AM");
 
-        // Set styles for the buttons
+        //TODO create a loop that sets the font size of each of the text for your buttons so that code isn't repeated
         oneButton.setStyle("-fx-font-size: 14px;");
         twoButton.setStyle("-fx-font-size: 14px;");
         threeButton.setStyle("-fx-font-size: 14px;");
@@ -67,7 +67,8 @@ public class fourMorning {
         nineButton.setStyle("-fx-font-size: 14px;");
         continueButton.setStyle("-fx-font-size: 14px;");
 
-        // Set the continue button to be initially invisible
+
+        // TODO: after creating the enum, create a for loop to initialize the buttons with JavaFX
         threeButton.setVisible(false);
         fourButton.setVisible(false);
         fiveButton.setVisible(false);
@@ -77,7 +78,7 @@ public class fourMorning {
         nineButton.setVisible(false);
         continueButton.setVisible(false);
 
-        // Button actions
+        //TODO: use a switch statement so that the code is more readable
         oneButton.setOnAction(e -> {
             gameStatus.setText("Deciding that the noise is just some random object that is DEFINITELY not part of the noise from the restroom earlier, a need to go to the kitchen seems like the most reasonable choice for you and your break.\n" +
                     "\n" +
@@ -219,7 +220,7 @@ public class fourMorning {
         layout.setTop(gameStatus);
 
         // Add stats text below the game status text
-        layout.setBottom(statsText);
+        //layout.setBottom(statsText);
 
         // Create a VBox to arrange buttons vertically
         VBox buttonBox = new VBox(10);  // 10px spacing between buttons
@@ -233,8 +234,9 @@ public class fourMorning {
     }
 
     // Method to update the stats text
+    // TODO: Delete this method because it already exist in the fiveMorning file.
     private void updateStats() {
-        statsText.setText("Conviction: " + conviction + " | Madness: " + madness);
+        //statsText.setText("Conviction: " + GameState.getConviction() + " | Madness: " + GameState.getMadness());
     }
 
     // Helper method to hide the action buttons
@@ -243,6 +245,10 @@ public class fourMorning {
         twoButton.setVisible(false);
     }
 
+    /*
+    TODO: Styling: make sure your methods are descriptive.
+     "hideMoreButtons()" is vague and unclear to the reader. Something like "hideButtons34589()" would suffice
+     */
     private void hideMoreButtons() {
         threeButton.setVisible(false);
         fourButton.setVisible(false);
@@ -261,4 +267,12 @@ public class fourMorning {
     public Scene getScene() {
         return scene;
     }
+
+    //TODO: create an enum for the buttons
+    public enum buttons {
+        KITCHEN_TIME(),
+        INVESTIGATE()
+        //TODO: finish the rest
+    }
+
 }

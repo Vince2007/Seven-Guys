@@ -1,5 +1,6 @@
 package edu.sdccd.cisc190.scenes;
 
+import edu.sdccd.cisc190.stats.GameState;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
@@ -9,10 +10,8 @@ import javafx.stage.Stage;
 
 public class oneMorning {
     private Scene scene;
-    private int conviction; // Variable to track the conviction stat
-    private int madness; // Variable to track the madness stat
     private final Text gameStatus;
-    private final Text statsText;       // Text to display the stats
+    //private final Text statsText;       // Text to display the stats
 
     // Declare buttons as instance variables to use them in different methods
     private final Button oneButton;
@@ -39,8 +38,8 @@ public class oneMorning {
         gameStatus.setStyle("-fx-font-size: 14px; -fx-font-weight: bold;");
 
         // Text for displaying stats (conviction and madness)
-        statsText = new Text("Conviction: " + conviction + " | Madness: " + madness);
-        statsText.setStyle("-fx-font-size: 14px; -fx-font-weight: bold;");
+        //statsText = new Text("Conviction: " + GameState.getConviction() + " | Madness: " + GameState.getMadness());
+        //statsText.setStyle("-fx-font-size: 14px; -fx-font-weight: bold;");
 
         // Initialize buttons
         oneButton = new Button("Actually do your job");
@@ -51,7 +50,11 @@ public class oneMorning {
         sixButton = new Button("Look for other way out (leads you into a vent finding a news paper gaining conviction)");
         continueButton = new Button("Transition to 4 AM");
 
-        // Set styles for the buttons
+        /*
+        TODO:
+            OPTION 1 - create an enum of buttons and use a loop to set style
+            OPTION 2- Store buttons above in an array and use a loop to set style.
+         */
         oneButton.setStyle("-fx-font-size: 14px;");
         twoButton.setStyle("-fx-font-size: 14px;");
         threeButton.setStyle("-fx-font-size: 14px;");
@@ -85,7 +88,7 @@ public class oneMorning {
         });
 
         twoButton.setOnAction(e -> {
-            madness++;
+            //GameState.increaseMadness();
             gameStatus.setText("Something, maybe you actually make it to the bathrooms. Who cares about what the note on the SCAM says anyways right?\n" +
                     "You looked around for anything interesting, not surprisingly finding some graffiti and doodles in some of the walls and covers.\n" +
                     "One catches your attention however:\n" +
@@ -103,7 +106,7 @@ public class oneMorning {
         });
 
         threeButton.setOnAction(e -> {
-            conviction++;
+            //GameState.increaseConviction();
             gameStatus.setText("Quickly crawling under the table, you wait in silence as giant stops fill the room. Anxiously waiting, you grab the newspaper and read it.\n" +
                     "October 12, 20XX - DISAPPEARANCE NOTICES\n" +
                     "\tRecently, two security guards have been missing after working at Seven Guys. They were last seen going to their night shifts. \n" +
@@ -117,7 +120,7 @@ public class oneMorning {
         });
 
         fourButton.setOnAction(e -> {
-            madness++;
+            //GameState.increaseConviction();
             gameStatus.setText("SO MANY SPIDERS. The animatronic may have passed but your mind didn’t.\n" +
                     "After that fiasco you finally arrive in the bathrooms.\n");
             updateStats();  // Update the stats text
@@ -128,7 +131,7 @@ public class oneMorning {
         });
 
         fiveButton.setOnAction(e -> {
-            madness++;
+            //GameState.increaseConviction();
             updateStats();  // Update the stats text
 
             // Show the continue button and hide other buttons
@@ -137,7 +140,7 @@ public class oneMorning {
         });
 
         sixButton.setOnAction(e -> {
-            conviction++;
+            //GameState.increaseConviction();
             updateStats();  // Update the stats text
 
             // Show the continue button and hide other buttons
@@ -155,7 +158,7 @@ public class oneMorning {
         layout.setTop(gameStatus);
 
         // Add stats text below the game status text
-        layout.setBottom(statsText);
+        //layout.setBottom(statsText);
 
         // Create a VBox to arrange buttons vertically
         VBox buttonBox = new VBox(10, oneButton, twoButton, threeButton, fourButton, fiveButton, sixButton, continueButton);
@@ -168,7 +171,7 @@ public class oneMorning {
 
     // Method to update the stats text
     private void updateStats() {
-        statsText.setText("Conviction: " + conviction + " | Madness: " + madness);
+        //statsText.setText("Conviction: " + GameState.getConviction() + " | Madness: " + GameState.getMadness());
     }
 
     // Helper method to hide the action buttons

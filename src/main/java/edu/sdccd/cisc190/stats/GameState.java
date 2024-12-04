@@ -1,12 +1,17 @@
 package edu.sdccd.cisc190.stats;
 
+/**
+ * Javadoc your public classes and methods
+ * Explain what GameState does. Why is Conviction and Madness significant to your game?
+ */
 public class GameState {
+
     private int conviction;
     private int madness;
 
-    public GameState() {
-        this.conviction = 0;
-        this.madness = 0;
+    public GameState(int conviction, int madness) {
+        this.conviction = conviction;
+        this.madness = madness;
     }
 
     public int getConviction() {
