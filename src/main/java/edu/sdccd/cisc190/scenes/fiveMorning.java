@@ -12,6 +12,8 @@ import javafx.stage.Stage;
 
 //TODO: Correct to 'FiveMorning'. For ALL classes, ensure that you are capitalizing every word, not camelCase.
 public class fiveMorning {
+
+
     private Scene scene;
     private final Text gameStatus;
     private Text statsText;       // Text to display the stats
@@ -73,9 +75,9 @@ public class fiveMorning {
         return layout;
     }
 
-    // TODO: Plug this method in a separate file and call it whenever you want to display user's conviction and madness stats
+    // TODO Update and Plug this method in a separate file and call it whenever you want to display user's conviction and madness stats. Make sure to uncomment the first line of the method
     public void updateStats() {
-        statsText.setText("Conviction: " + GameState.getConviction() + " | Madness: " + GameState.getMadness());
+        //statsText.setText("Conviction: " + gameState.getConviction() + " | Madness: " + gameState.getMadness());
         statsText.setStyle("-fx-font-size: 14px; -fx-font-weight: bold;");
     }
 

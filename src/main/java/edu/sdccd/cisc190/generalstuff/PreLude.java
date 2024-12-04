@@ -27,7 +27,7 @@ public class PreLude {
                 "that you’re sure hasn’t been cleaned in weeks… you have a bad feeling about this. How… cliche.\n");
         gameStatus.setStyle("-fx-font-size: 9px; -fx-font-weight: bold;");
 
-        //TODO: ensure that the text wraps inside the layout. Do this for all your long texts.
+        //TODO: ensure that the text wraps inside the layout. Do this for all your long texts
         gameStatus.setWrappingWidth(200);
 
 

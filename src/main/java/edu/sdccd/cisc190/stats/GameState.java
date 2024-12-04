@@ -10,23 +10,23 @@ public class GameState {
     private int madness;
 
     public GameState(int conviction, int madness) {
-        this.conviction = 0;
-        this.madness = 0;
+        this.conviction = conviction;
+        this.madness = madness;
     }
 
-    public static int getConviction() {
+    public int getConviction() {
         return conviction;
     }
 
-    public static int increaseConviction() {
-        return conviction++;
+    public void increaseConviction() {
+        conviction++;
     }
 
-    public static int getMadness() {
+    public int getMadness() {
         return madness;
     }
 
-    public static int increaseMadness() {
-        return madness++;
+    public void increaseMadness() {
+        madness++;
     }
 }

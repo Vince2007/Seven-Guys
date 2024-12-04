@@ -11,7 +11,7 @@ import javafx.stage.Stage;
 public class fourMorning {
     private Scene scene;
     private final Text gameStatus;
-    private final Text statsText;       // Text to display the stats
+    //private final Text statsText;       // Text to display the stats
 
     // Declare buttons as instance variables to use them in different methods
     private final Button oneButton;
@@ -39,8 +39,8 @@ public class fourMorning {
         gameStatus.setStyle("-fx-font-size: 14px; -fx-font-weight: bold;");
 
         // Text for displaying stats (conviction and madness)
-        statsText = new Text("Conviction: " + conviction + " | Madness: " + madness);
-        statsText.setStyle("-fx-font-size: 14px; -fx-font-weight: bold;");
+        //statsText = new Text("Conviction: " + GameState.getConviction() + " | Madness: " + GameState.getMadness());
+        //statsText.setStyle("-fx-font-size: 14px; -fx-font-weight: bold;");
 
         //TODO: delete this and write the enum
         // TODO: alternatively, you can store these buttons in an array and loop through them
@@ -220,7 +220,7 @@ public class fourMorning {
         layout.setTop(gameStatus);
 
         // Add stats text below the game status text
-        layout.setBottom(statsText);
+        //layout.setBottom(statsText);
 
         // Create a VBox to arrange buttons vertically
         VBox buttonBox = new VBox(10);  // 10px spacing between buttons
@@ -234,9 +234,9 @@ public class fourMorning {
     }
 
     // Method to update the stats text
-    // TODO: Delete this method because it already exist in the fiveMorning file
+    // TODO: Delete this method because it already exist in the fiveMorning file.
     private void updateStats() {
-        statsText.setText("Conviction: " + GameState.getConviction() + " | Madness: " + GameState.getMadness());
+        //statsText.setText("Conviction: " + GameState.getConviction() + " | Madness: " + GameState.getMadness());
     }
 
     // Helper method to hide the action buttons
