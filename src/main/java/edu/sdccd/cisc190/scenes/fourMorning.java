@@ -9,10 +9,8 @@ import javafx.stage.Stage;
 
 public class fourMorning {
     private Scene scene;
-    private int conviction; // Variable to track the conviction stat
-    private int madness; // Variable to track the madness stat
     private final Text gameStatus;
-    private final Text statsText;       // Text to display the stats
+    //private final Text statsText;       // Text to display the stats
 
     // Declare buttons as instance variables to use them in different methods
     private final Button oneButton;
@@ -40,10 +38,10 @@ public class fourMorning {
         gameStatus.setStyle("-fx-font-size: 14px; -fx-font-weight: bold;");
 
         // Text for displaying stats (conviction and madness)
-        statsText = new Text("Conviction: " + conviction + " | Madness: " + madness);
-        statsText.setStyle("-fx-font-size: 14px; -fx-font-weight: bold;");
+        //statsText = new Text("Conviction: " + gameState.getConviction() + " | Madness: " + gameState.getMadness());
+        //statsText.setStyle("-fx-font-size: 14px; -fx-font-weight: bold;");
 
-        // Initialize buttons
+        //TODO: Store these buttons in an array and loop through them
         oneButton = new Button("Kitchen time");
         twoButton = new Button("Investigate");
         threeButton = new Button("Bottle of water");
@@ -55,7 +53,7 @@ public class fourMorning {
         nineButton = new Button("Go Back");
         continueButton = new Button("Transition to 5 AM");
 
-        // Set styles for the buttons
+        //TODO: Create a loop that sets the style of each button
         oneButton.setStyle("-fx-font-size: 14px;");
         twoButton.setStyle("-fx-font-size: 14px;");
         threeButton.setStyle("-fx-font-size: 14px;");
@@ -67,7 +65,7 @@ public class fourMorning {
         nineButton.setStyle("-fx-font-size: 14px;");
         continueButton.setStyle("-fx-font-size: 14px;");
 
-        // Set the continue button to be initially invisible
+        //TODO: Create loop to set the visibility
         threeButton.setVisible(false);
         fourButton.setVisible(false);
         fiveButton.setVisible(false);
@@ -77,7 +75,7 @@ public class fourMorning {
         nineButton.setVisible(false);
         continueButton.setVisible(false);
 
-        // Button actions
+        // Use case statement for cleaner readability
         oneButton.setOnAction(e -> {
             gameStatus.setText("Deciding that the noise is just some random object that is DEFINITELY not part of the noise from the restroom earlier, a need to go to the kitchen seems like the most reasonable choice for you and your break.\n" +
                     "\n" +
@@ -219,7 +217,7 @@ public class fourMorning {
         layout.setTop(gameStatus);
 
         // Add stats text below the game status text
-        layout.setBottom(statsText);
+        //layout.setBottom(statsText);
 
         // Create a VBox to arrange buttons vertically
         VBox buttonBox = new VBox(10);  // 10px spacing between buttons
@@ -233,16 +231,18 @@ public class fourMorning {
     }
 
     // Method to update the stats text
+    //TODO: Delete this because its been created in FiveMorning class
     private void updateStats() {
-        statsText.setText("Conviction: " + conviction + " | Madness: " + madness);
+        //statsText.setText("Conviction: " + gameState.getConviction + " | Madness: " + gameState.getMadness);
     }
 
-    // Helper method to hide the action buttons
+    // TODO: Rename vague methods so that anyone that reads it can infer exactly what it does. You can rename this to hideButtons12
     private void hideOtherButtons() {
         oneButton.setVisible(false);
         twoButton.setVisible(false);
     }
 
+    //TODO: Rename to hideButtons34589
     private void hideMoreButtons() {
         threeButton.setVisible(false);
         fourButton.setVisible(false);

@@ -9,6 +9,8 @@ public class MainGame extends Application {
     public void start(Stage primaryStage) {
         // Create scenes for each part of the game
         TitleScreen titleScreen = new TitleScreen(primaryStage);
+
+        //TODO: MainMenu and Prelude aren't being used so delete them
         MainMenu mainMenu = new MainMenu(primaryStage);
         PreLude gameScreen = new PreLude(primaryStage);
 

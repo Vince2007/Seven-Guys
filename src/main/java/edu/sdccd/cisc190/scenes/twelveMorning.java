@@ -7,6 +7,8 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+//TODO: update all the uses of conviction and madness to gameState.getConviction and gameState.getMadness
+
 public class twelveMorning {
     private final Scene scene;
     private int conviction = 0;   // Variable to track the conviction stat

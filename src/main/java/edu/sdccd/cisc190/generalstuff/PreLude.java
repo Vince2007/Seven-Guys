@@ -1,6 +1,7 @@
 package edu.sdccd.cisc190.generalstuff;
 
 import edu.sdccd.cisc190.scenes.twelveMorning;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
@@ -14,6 +15,7 @@ public class PreLude {
     // Constructor to accept conviction and madness
     public PreLude(Stage primaryStage, int conviction, int madness) {
         // Create the game status text
+        //TODO: Break up text
         Text gameStatus = new Text("What was that? Did the stat points that should be appearing on a “screen” increase. " +
                 "Apparently, everything you do is judge. Of Judgey devs. Huh what did we do-.\n" +
                 "“Whatever, I can do this” you say anxiously of the sanity meter that is also there.\n" +
@@ -23,7 +25,9 @@ public class PreLude {
                 "There’s the door to the main stage on your left, a table filled with monitors of the different cameras around the restaurant, " +
                 "a fan on top that barely works, and of course, a flashlight and a badge on your moldy chair " +
                 "that you’re sure hasn’t been cleaned in weeks… you have a bad feeling about this. How… cliche.\n");
-        gameStatus.setStyle("-fx-font-size: 9px; -fx-font-weight: bold;");
+        gameStatus.setStyle("-fx-font-size: 11px; -fx-font-weight: bold;");
+
+        gameStatus.setWrappingWidth(680);
 
         // Create the display for stats (Conviction and Madness)
         Text statsText = new Text("Conviction: " + conviction + " | Madness: " + madness);
@@ -47,8 +51,11 @@ public class PreLude {
         VBox buttonLayout = new VBox(10, actionButton);
         layout.setCenter(buttonLayout);
 
+        //Center the text so that it isn't directly touching the edge of the window
+        BorderPane.setAlignment(gameStatus, Pos.TOP_CENTER);
+
         // Create the scene with the layout and set the preferred size
-        scene = new Scene(layout, 300, 400);
+        scene = new Scene(layout, 700, 400);
     }
 
     public PreLude(Stage primaryStage) {
