@@ -2,7 +2,6 @@ package edu.sdccd.cisc190.scenes;
 
 import edu.sdccd.cisc190.altscenes.five1Morning;
 import edu.sdccd.cisc190.generalstuff.ExitGame;
-import edu.sdccd.cisc190.generalstuff.MainMenu;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
@@ -11,11 +10,10 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class fiveMorning {
+
     private Scene scene;
-    private int conviction; // Variable to track the conviction stat
-    private int madness; // Variable to track the madness stat
     private final Text gameStatus;
-    private final Text statsText;       // Text to display the stats
+    private Text statsText;       // Text to display the stats
 
     public fiveMorning(Stage primaryStage) {
         // Initial game status text
@@ -32,10 +30,14 @@ public class fiveMorning {
                 "You hear noises… loud noises…");
         gameStatus.setStyle("-fx-font-size: 14px; -fx-font-weight: bold;");
 
-        // Text for displaying stats (conviction and madness)
-        statsText = new Text("Conviction: " + conviction + " | Madness: " + madness);
-        statsText.setStyle("-fx-font-size: 14px; -fx-font-weight: bold;");
-        // Button actions
+        BorderPane layout = getBorderPane(primaryStage);
+
+        // Scene 700x400
+        scene = new Scene(layout, 700, 400);
+    }
+
+    //contain
+    private BorderPane getBorderPane(Stage primaryStage) {
         Button oneButton = new Button("Investigate");
         oneButton.setStyle("-fx-font-size: 14px;");
         oneButton.setOnAction(e -> gameStatus.setText("Going towards the loud noise, you find that Daniel the Dog fell hard from Backstage.\n" +
@@ -64,13 +66,13 @@ public class fiveMorning {
         // Set the VBox containing buttons to the center of the BorderPane
         layout.setCenter(buttonBox);
 
-        // Scene creation with appropriate size
-        scene = new Scene(layout, 400, 400);
+        return layout;
     }
 
-    // Method to update the stats text
-    private void updateStats() {
-        statsText.setText("Conviction: " + conviction + " | Madness: " + madness);
+    // TODO: Use this method whenever you want to display user's conviction and madness stats. Uncomment the first line.
+    public void updateStats() {
+        //statsText.setText("Conviction: " + gameState.getConviction() + " | Madness: " + gameState.getMadness());
+        statsText.setStyle("-fx-font-size: 14px; -fx-font-weight: bold;");
     }
 
     // Getter for the scene

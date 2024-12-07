@@ -7,6 +7,8 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+//TODO: Capitalize all classes under altscenes and scenes packages
+
 public class five1Morning {
     private Scene scene;
     private int conviction; // Variable to track the conviction stat
