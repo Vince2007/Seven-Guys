@@ -7,6 +7,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+// TODO: Create a BaseScene abstract class that contains each of the important functionality for each scene and extend each scene off of that class
 public class twelveMorning {
     private final Scene scene;
     private int conviction = 0;   // Variable to track the conviction stat
@@ -15,6 +16,7 @@ public class twelveMorning {
     private final Text statsText;       // Text to display the stats
 
     // Declare buttons as instance variables to use them in different methods
+    // TODO: Give buttons meaningful names that infer their purpose in the game
     private final Button oneButton;
     private final Button twoButton;
     private final Button threeButton;
@@ -51,6 +53,7 @@ public class twelveMorning {
         continueButton.setVisible(false);
 
         // Button actions
+        // TODO: Instead of changing the text in this scene, create a new scene with this information and relevant buttons
         oneButton.setOnAction(e -> {
             conviction++;  // Increase conviction
             gameStatus.setText("You’ve decided to check the cameras, from the nearby halls to adjacent rooms from the main stage.\n" +
@@ -62,6 +65,7 @@ public class twelveMorning {
             hideOtherButtons();
         });
 
+        // TODO: Instead of changing the text in this scene, create a new scene with this information and relevant buttons
         twoButton.setOnAction(e -> {
             conviction++;  // Increase conviction
             madness++;     // Increase madness
@@ -74,6 +78,7 @@ public class twelveMorning {
             hideOtherButtons();
         });
 
+        // TODO: Instead of changing the text in this scene, create a new scene with this information and relevant buttons
         threeButton.setOnAction(e -> {
             gameStatus.setText("This place is nuts!\nNo way you’re going to deal with something like this on a late evening, let alone on the FIRST HOUR.\n" +
                     "You prepare to ditch this job without a single care of what will happen next.");
@@ -106,6 +111,7 @@ public class twelveMorning {
         layout.setCenter(buttonLayout);
 
         // Scene creation with appropriate size
+        // TODO: Make this window larger so it emcompasses the information without falling off the window
         scene = new Scene(layout, 400, 400);  // Adjusted width for better appearance
     }
 

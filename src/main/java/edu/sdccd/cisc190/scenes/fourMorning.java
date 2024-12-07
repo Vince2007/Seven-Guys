@@ -7,6 +7,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+// TODO: Create a BaseScene abstract class that contains each of the important functionality for each scene and extend each scene off of that class
 public class fourMorning {
     private Scene scene;
     private int conviction; // Variable to track the conviction stat
@@ -43,6 +44,7 @@ public class fourMorning {
         statsText = new Text("Conviction: " + conviction + " | Madness: " + madness);
         statsText.setStyle("-fx-font-size: 14px; -fx-font-weight: bold;");
 
+        // TODO: Give these buttons descriptive names (ie "kitchenOption" as opposed to oneButton)
         // Initialize buttons
         oneButton = new Button("Kitchen time");
         twoButton = new Button("Investigate");
@@ -77,6 +79,7 @@ public class fourMorning {
         nineButton.setVisible(false);
         continueButton.setVisible(false);
 
+        // TODO: Instead of changing the game text in this class, create a new scene that contains this information and relevant buttons
         // Button actions
         oneButton.setOnAction(e -> {
             gameStatus.setText("Deciding that the noise is just some random object that is DEFINITELY not part of the noise from the restroom earlier, a need to go to the kitchen seems like the most reasonable choice for you and your break.\n" +
@@ -93,6 +96,7 @@ public class fourMorning {
             hideOtherButtons();
         });
 
+        // TODO: Instead of changing the game text in this class, create a new scene that contains this information and relevant buttons
         twoButton.setOnAction(e -> {
             gameStatus.setText("You go out to the party area, just empty tables, where party hats are just sitting there.\n" +
                     "You realize the sound was just some more fallen objects (coincidence).\n" +
@@ -109,6 +113,7 @@ public class fourMorning {
             hideOtherButtons();
         });
 
+        // TODO: Instead of changing the game text in this class, create a new scene that contains this information and relevant buttons
         threeButton.setOnAction(e -> {
             gameStatus.setText("You were thirsty and you drank a lot of water, you saved some for later.\n" +
                     "After your break, you decide it’s best to go back to your office.\n" +
@@ -121,6 +126,7 @@ public class fourMorning {
             hideMoreButtons();
         });
 
+        // TODO: Instead of changing the game text in this class, create a new scene that contains this information and relevant buttons
         fourButton.setOnAction(e -> {
             gameStatus.setText("You warm it up in a microwave, it tastes pretty good, and you restore a lot of energy.\n" +
                     "After your break, you decide it’s best to go back to your office.\n" +
@@ -133,6 +139,7 @@ public class fourMorning {
             hideMoreButtons();
         });
 
+        // TODO: Instead of changing the game text in this class, create a new scene that contains this information and relevant buttons
         fiveButton.setOnAction(e -> {
             gameStatus.setText("IDK why you decided to eat it, but you took one bite, and don’t have the appetizer anymore.\n" +
                     "After your break, you decide it’s best to go back to your office.\n" +
@@ -145,6 +152,7 @@ public class fourMorning {
             hideMoreButtons();
         });
 
+        // TODO: Instead of changing the game text in this class, create a new scene that contains this information and relevant buttons
         sixButton.setOnAction(e -> {
             gameStatus.setText("You slowly approach the kitchen.\n" +
                     "That’s weird, something is eating the food in the fridge.\n" +
@@ -167,6 +175,7 @@ public class fourMorning {
             hideEvenMoreButtons();
         });
 
+        // TODO: Instead of changing the game text in this class, create a new scene that contains this information and relevant buttons
         sevenButton.setOnAction(e -> {
             gameStatus.setText("While there, you think about the events you’ve witnessed, but one thing, one thing you think about a lot, is the animatronics; you’re not sure if you’re hallucinating or it’s for real, but it makes you think so much.\n" +
                     "You decide to check on your cameras, to give yourself a breather to at least see if everything is indeed normal or not.\n" +
@@ -182,6 +191,7 @@ public class fourMorning {
             hideEvenMoreButtons();
         });
 
+        // TODO: Instead of changing the game text in this class, create a new scene that contains this information and relevant buttons
         eightButton.setOnAction(e -> {
             gameStatus.setText("Ozzy the Ostrich moving wasn’t something to be expected from.\n" +
                     "To be fair, it was moving fast, so it could be just something else; but you doubt it.\n" +
@@ -198,6 +208,7 @@ public class fourMorning {
             hideMoreButtons();
         });
 
+        // TODO: Instead of changing the game text in this class, create a new scene that contains this information and relevant buttons
         nineButton.setOnAction(e -> {
             gameStatus.setText("You go back to your office, and just before you do, bam, the power goes off, and now that must mean one thing, to turn the power back on.\n" +
                     "You don’t know if these animatronics are moving, but right now, the focus is just putting back the power on, and going straight back to the office.\n" +
@@ -229,6 +240,7 @@ public class fourMorning {
         layout.setCenter(buttonBox);
 
         // Scene creation with appropriate size
+        // TODO: Make this window larger so it emcompasses the information without falling off the window
         scene = new Scene(layout, 400, 400);
     }
 

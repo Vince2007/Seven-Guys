@@ -124,6 +124,7 @@ public class fiveDodge1 {
 
 
         // Scene creation with appropriate size
+        // TODO: Make this window larger so it emcompasses the information without falling off the window
         scene = new Scene(layout, 400, 400);
     }
 

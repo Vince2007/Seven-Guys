@@ -38,6 +38,7 @@ public class fiveMorning {
         // Button actions
         Button oneButton = new Button("Investigate");
         oneButton.setStyle("-fx-font-size: 14px;");
+        // TODO: Instead of changing the text in this scene, create a new scene with this information and relevant buttons
         oneButton.setOnAction(e -> gameStatus.setText("Going towards the loud noise, you find that Daniel the Dog fell hard from Backstage.\n" +
                 "You don’t care about the suspicion of the animatronics, you just want this to end.\n" +
                 "You put Daniel the Dog back in place and decide to return to the Generator.\n" +
@@ -65,6 +66,7 @@ public class fiveMorning {
         layout.setCenter(buttonBox);
 
         // Scene creation with appropriate size
+        // TODO: Make this window larger so it emcompasses the information without falling off the window
         scene = new Scene(layout, 400, 400);
     }
 
