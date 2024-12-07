@@ -13,9 +13,10 @@ public class PreLude {
 
     // Constructor to accept conviction and madness
     public PreLude(Stage primaryStage, int conviction, int madness) {
+        // TODO: Consider improving the introductory text for better pacing and clarity
         // Create the game status text
         Text gameStatus = new Text("What was that? Did the stat points that should be appearing on a “screen” increase. " +
-                "Apparently, everything you do is judge. Of Judgey devs. Huh what did we do-.\n" +
+                "Apparently, everything you do is judged. Of Judgey devs. Huh, what did we do-.\n" +
                 "“Whatever, I can do this” you say anxiously of the sanity meter that is also there.\n" +
                 "“But we'll probably avoid getting that meter down to 0. Just a thought”\n" +
                 "(We won’t tell the nightguard this but, you’ll die. Don’t do dumb sounding stuff and you won’t die. " +
@@ -25,13 +26,16 @@ public class PreLude {
                 "that you’re sure hasn’t been cleaned in weeks… you have a bad feeling about this. How… cliche.\n");
         gameStatus.setStyle("-fx-font-size: 9px; -fx-font-weight: bold;");
 
+        // TODO: Display stats (Conviction and Madness) dynamically based on player progress
         // Create the display for stats (Conviction and Madness)
         Text statsText = new Text("Conviction: " + conviction + " | Madness: " + madness);
         statsText.setStyle("-fx-font-size: 14px; -fx-font-weight: bold;");
 
-        // Create the action button
+        // Create the action button to progress to the next scene
         Button actionButton = new Button("Feeling a little 12AM?");
         actionButton.setStyle("-fx-font-size: 14px;");
+
+        // TODO: Check if the transition to "12 AM" (twelveMorning) scene works smoothly
         actionButton.setOnAction(e -> primaryStage.setScene(new twelveMorning(primaryStage).getScene()));
 
         // Set up the BorderPane layout
@@ -47,10 +51,12 @@ public class PreLude {
         VBox buttonLayout = new VBox(10, actionButton);
         layout.setCenter(buttonLayout);
 
+        // TODO: Consider making the layout more flexible to accommodate additional elements later
         // Create the scene with the layout and set the preferred size
         scene = new Scene(layout, 300, 400);
     }
 
+    // Empty constructor (unused currently, should be removed or repurposed)
     public PreLude(Stage primaryStage) {
     }
 
