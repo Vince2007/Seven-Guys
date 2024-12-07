@@ -11,8 +11,8 @@ public class oneMorning {
     private Scene scene;
     private int conviction; // Variable to track the conviction stat
     private int madness; // Variable to track the madness stat
-    private final Text gameStatus;
-    private final Text statsText;       // Text to display the stats
+    private final Text gameStatus; // Text to display game status (storyline)
+    private final Text statsText; // Text to display the stats (conviction, madness)
 
     // Declare buttons as instance variables to use them in different methods
     private final Button oneButton;
@@ -24,25 +24,19 @@ public class oneMorning {
     private final Button continueButton;
 
     public oneMorning(Stage primaryStage) {
-        // Initial game status text
+        // TODO: Initialize game status text with the first part of the story
         gameStatus = new Text("All that excitement, and you’re still bored. " +
-                "Back again scrolling through your phone, bored out of your mind, totally doing your job.\n" +
+                "Back again scrolling through your phone, bored out of your mind, totally doing your job...\n" +
                 "After the hour’s… quirky encounters? You’re pretty good. Did you have a choice?\n" +
-                "No. Ironic, a game like this doesn’t give you the cho- anyways.\n" +
-                "The manager of the place shoved a big old note right on the SCAM.\n" +
-                "“Hello? Hello? I’m writing this like I’m speaking to you over the phone.\n" +
-                "Imma need you to clean the bathrooms…” You panic over reading that part.\n" +
-                "“Yes. Both of them. So good luck.”\n" +
-                "Good luck? GOOD LUCK? WHAT. No way, does that imply… whatever.\n" +
-                "Finishing the note, “note: if you don’t do this, I’ll terminate you.”\n" +
-                "You don’t know what to say to that. So you’ll have to take care of that eventually.\n");
+                "No. Ironic, a game like this doesn’t give you the cho- anyways...\n" +
+                "The manager of the place shoved a big old note right on the SCAM...\n");
         gameStatus.setStyle("-fx-font-size: 14px; -fx-font-weight: bold;");
 
-        // Text for displaying stats (conviction and madness)
+        // TODO: Initialize the stats text, starting with default values (conviction = 0, madness = 0)
         statsText = new Text("Conviction: " + conviction + " | Madness: " + madness);
         statsText.setStyle("-fx-font-size: 14px; -fx-font-weight: bold;");
 
-        // Initialize buttons
+        // TODO: Initialize buttons that represent player choices
         oneButton = new Button("Actually do your job");
         twoButton = new Button("Procrastinating is nice...");
         threeButton = new Button("Hide under the tables (+1 conviction)");
@@ -51,7 +45,7 @@ public class oneMorning {
         sixButton = new Button("Look for other way out (leads you into a vent finding a news paper gaining conviction)");
         continueButton = new Button("Transition to 4 AM");
 
-        // Set styles for the buttons
+        // TODO: Set styles for buttons to make them look better (font size)
         oneButton.setStyle("-fx-font-size: 14px;");
         twoButton.setStyle("-fx-font-size: 14px;");
         threeButton.setStyle("-fx-font-size: 14px;");
@@ -60,123 +54,121 @@ public class oneMorning {
         sixButton.setStyle("-fx-font-size: 14px;");
         continueButton.setStyle("-fx-font-size: 14px;");
 
-        // Set the continue button to be initially invisible
+        // TODO: Initially hide certain buttons until certain actions are taken
         threeButton.setVisible(false);
         fourButton.setVisible(false);
         fiveButton.setVisible(false);
         sixButton.setVisible(false);
         continueButton.setVisible(false);
 
-        // Button actions
-        oneButton.setOnAction(e -> {
-            gameStatus.setText("Good choice. Before heading off you check the cameras in case anything nefarious was going on… Nothing. Nice. You head off into the dining area but as you look onto the stage.\n" +
-                    "Something was obviously wrong. Missing, for sure you knew. Ozzy and Daniel were gone.\n" +
-                    "All you could see was the empty husk of Rumble’s body on stage.\n" +
-                    "You hear stomping from the backstage of the establishment. It’s approaching.\n" +
-                    "The dining area has an arcade nearby, chairs too.\n" +
-                    "Hiding the arcade machine… would seem like a good idea but you’re not a fan of those cobwebs and lack of space.\n" +
-                    "Under the tables seems nicer… and what is that… a piece of newspaper? Maybe the table would hold some information about this madness.\n");
-            updateStats();  // Update the stats text
+        // TODO: Add event handlers to buttons to change the game state (e.g., update game status and stats)
 
-            // Show the continue button and hide other buttons
+        // Button actions for oneButton (Actually do your job)
+        oneButton.setOnAction(e -> {
+            gameStatus.setText("Good choice. Before heading off you check the cameras in case anything nefarious was going on… Nothing.\n" +
+                    "You head off into the dining area but as you look onto the stage, something was obviously wrong. Missing, for sure you knew...\n" +
+                    "Ozzy and Daniel were gone.\n" +
+                    "The dining area has an arcade nearby, chairs too.\n" +
+                    "Hiding under the tables seems nicer… and what is that… a piece of newspaper?\n");
+            updateStats();  // TODO: Update the stats text when this option is selected
+
+            // TODO: Show additional choices and hide others
             threeButton.setVisible(true);
             fourButton.setVisible(true);
             hideOtherButtons();
         });
 
+        // Button actions for twoButton (Procrastinating is nice...)
         twoButton.setOnAction(e -> {
-            madness++;
-            gameStatus.setText("Something, maybe you actually make it to the bathrooms. Who cares about what the note on the SCAM says anyways right?\n" +
-                    "You looked around for anything interesting, not surprisingly finding some graffiti and doodles in some of the walls and covers.\n" +
-                    "One catches your attention however:\n" +
-                    "“Merry Jurrell is bitch ass mothe-”\n" +
-                    "Hmm… maybe I shouldn’t read that. Uh anyways.\n" +
-                    "Picked up some cleaning supplies, and wiped off any signs of the graffiti from the restroom. \n" +
-                    "[Obtained 1 Madness]\n" +
-                    "Leaving, you realize the doors are locked… from the outside. This night couldn’t get any worse- You’ll need to get out eventually.\n");
-            updateStats();  // Update the stats text
+            madness++; // TODO: Increase madness stat when procrastinating
+            gameStatus.setText("Something, maybe you actually make it to the bathrooms...\n" +
+                    "You looked around for anything interesting, finding some graffiti and doodles...\n" +
+                    "Picked up some cleaning supplies, and wiped off any signs of the graffiti...\n");
+            updateStats();  // TODO: Update the stats text with new madness value
 
-            // Show the continue button and hide other buttons
+            // TODO: Show additional choices and hide others
             fiveButton.setVisible(true);
             sixButton.setVisible(true);
             hideOtherButtons();
         });
 
+        // Button actions for threeButton (Hide under the tables)
         threeButton.setOnAction(e -> {
-            conviction++;
-            gameStatus.setText("Quickly crawling under the table, you wait in silence as giant stops fill the room. Anxiously waiting, you grab the newspaper and read it.\n" +
+            conviction++; // TODO: Increase conviction stat for hiding under the tables
+            gameStatus.setText("Quickly crawling under the table, you wait in silence... Anxiously, you grab the newspaper and read it.\n" +
                     "October 12, 20XX - DISAPPEARANCE NOTICES\n" +
-                    "\tRecently, two security guards have been missing after working at Seven Guys. They were last seen going to their night shifts. \n" +
-                    "After that fiasco you finally arrive in the bathrooms.\n" +
-                    "Happens like “procrastinating is nice, choice”\n");
-            updateStats();  // Update the stats text
+                    "\tRecently, two security guards have been missing after working at Seven Guys...\n");
+            updateStats();  // TODO: Update the stats text with new conviction value
 
-            // Show the continue button and hide other buttons
+            // TODO: Show the continue button and hide other choices
             continueButton.setVisible(true);
             hideMoreButtons();
         });
 
+        // Button actions for fourButton (Hide behind arcade machines)
         fourButton.setOnAction(e -> {
-            madness++;
+            madness++; // TODO: Increase madness stat for hiding behind arcade machines
             gameStatus.setText("SO MANY SPIDERS. The animatronic may have passed but your mind didn’t.\n" +
                     "After that fiasco you finally arrive in the bathrooms.\n");
-            updateStats();  // Update the stats text
+            updateStats();  // TODO: Update the stats text with new madness value
 
-            // Show the continue button and hide other buttons
+            // TODO: Show the continue button and hide other choices
             continueButton.setVisible(true);
             hideMoreButtons();
         });
 
+        // Button actions for fiveButton (Run out)
         fiveButton.setOnAction(e -> {
-            madness++;
-            updateStats();  // Update the stats text
+            madness++; // TODO: Increase madness stat for running out
+            updateStats();  // TODO: Update the stats text with new madness value
 
-            // Show the continue button and hide other buttons
+            // TODO: Show the continue button and hide other choices
             continueButton.setVisible(true);
             hideMoreButtons();
         });
 
+        // Button actions for sixButton (Look for other way out)
         sixButton.setOnAction(e -> {
-            conviction++;
-            updateStats();  // Update the stats text
+            conviction++; // TODO: Increase conviction stat for looking for another way out
+            updateStats();  // TODO: Update the stats text with new conviction value
 
-            // Show the continue button and hide other buttons
+            // TODO: Show the continue button and hide other choices
             continueButton.setVisible(true);
             hideMoreButtons();
         });
 
-        // Action for continueButton to change to next scene
+        // Action for continueButton to transition to next scene (4 AM)
         continueButton.setOnAction(e -> primaryStage.setScene(new fourMorning(primaryStage).getScene()));
 
-        // Create the BorderPane layout
+        // TODO: Create layout with BorderPane
         BorderPane layout = new BorderPane();
 
-        // Add game status text to the top
+        // TODO: Add game status text at the top of the layout
         layout.setTop(gameStatus);
 
-        // Add stats text below the game status text
+        // TODO: Add stats text at the bottom of the layout
         layout.setBottom(statsText);
 
-        // Create a VBox to arrange buttons vertically
+        // TODO: Create VBox to arrange buttons vertically and add them to the layout
         VBox buttonBox = new VBox(10, oneButton, twoButton, threeButton, fourButton, fiveButton, sixButton, continueButton);
         layout.setCenter(buttonBox);
-        // Set the VBox containing buttons to the center of the BorderPane
 
-        // Scene creation with appropriate size
+        // TODO: Create the scene with a specific size (400x400)
         scene = new Scene(layout, 400, 400);
     }
 
-    // Method to update the stats text
+    // TODO: Method to update the stats text (conviction and madness)
     private void updateStats() {
         statsText.setText("Conviction: " + conviction + " | Madness: " + madness);
     }
 
-    // Helper method to hide the action buttons
+    // TODO: Helper method to hide specific buttons after choice (e.g., after a button press)
     private void hideOtherButtons() {
         oneButton.setVisible(false);
         twoButton.setVisible(false);
     }
 
+    // TODO: Helper method to hide additional buttons after making a selection
     private void hideMoreButtons() {
         threeButton.setVisible(false);
         fourButton.setVisible(false);
@@ -184,7 +176,7 @@ public class oneMorning {
         sixButton.setVisible(false);
     }
 
-    // Getter for the scene
+    // TODO: Getter method to return the scene object
     public Scene getScene() {
         return scene;
     }
