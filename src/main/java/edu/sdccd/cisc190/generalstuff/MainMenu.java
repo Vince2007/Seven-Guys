@@ -7,12 +7,14 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+// TODO: Create a BaseScene abstract class that contains each of the important functionality for each scene and extend each scene off of that class
 public class MainMenu {
     private final Scene scene;
     private int conviction; // stat for conviction
     private int madness;   // stat for madness
 
     public MainMenu(Stage primaryStage) {
+        // TODO: Make a user controller class where you can access conviction and madness from (GameState)
         conviction = 0;  // Initial conviction
         madness = 0;     // Initial madness
 
@@ -48,6 +50,7 @@ public class MainMenu {
 
         // Action to exit the application
         exitButton.setOnAction(e -> primaryStage.close());
+        // TODO: Instead of closing the window, open ExitGame() and confirm with the user if they want to leave
 
         // Create a text element to display stats
         Text stats = new Text("Conviction: " + conviction + " | Madness: " + madness);
@@ -70,6 +73,7 @@ public class MainMenu {
         BorderPane.setAlignment(buttonLayout, javafx.geometry.Pos.CENTER);
 
         // Create the scene with the BorderPane layout
+        // TODO: Make this window larger so it emcompasses the information without falling off the window
         scene = new Scene(layout, 300, 400);
     }
 

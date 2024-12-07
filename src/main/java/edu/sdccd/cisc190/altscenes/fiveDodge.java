@@ -35,6 +35,7 @@ public class fiveDodge {
 
         Button twoButton = new Button("Dodge attack");
         twoButton.setStyle("-fx-font-size: 14px;");
+        // TODO: Instead of changing the gameStatus text, create a new class where you pass this text and relevant buttons
         twoButton.setOnAction(e -> gameStatus.setText("You slid under Ozzy the Ostrich and you ran as fast as you could.\n" +
                 "You ran towards the main entrance/exit of the Seven Guys, however, the door won’t budge.\n" +
                 "And it’s too late, Ozzy the Ostrich caught up to you."));
@@ -57,6 +58,7 @@ public class fiveDodge {
         layout.setCenter(buttonBox);
 
         // Scene creation with appropriate size
+        // TODO: Make this window larger so it emcompasses the information without falling off the window
         scene = new Scene(layout, 400, 400);
     }
 

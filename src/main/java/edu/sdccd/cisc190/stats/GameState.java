@@ -24,4 +24,7 @@ public class GameState {
     public void increaseMadness() {
         madness++;
     }
+
+    // TODO: To use multithreading create a timer that shows the user how long they took to complete the game
+    // TODO: To use File I/O, if the user quits the game while a session is in progress, save their conviction and madness and their place in the game
 }

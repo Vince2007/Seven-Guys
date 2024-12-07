@@ -35,6 +35,7 @@ public class TitleScreen {
         layout.setCenter(startButton);
 
         // Create the scene with the layout and set the preferred size
+        // TODO: Make this window larger so it encompasses the title without overlap
         scene = new Scene(layout, 400, 300);
     }
 

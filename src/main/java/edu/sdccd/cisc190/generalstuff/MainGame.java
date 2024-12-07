@@ -8,6 +8,7 @@ public class MainGame extends Application {
     @Override
     public void start(Stage primaryStage) {
         // Create scenes for each part of the game
+        // TODO: Change the names for each scene class such that you can infer the place in the game from the name (i.e scene1, scene2, scene3, scene3alt)
         TitleScreen titleScreen = new TitleScreen(primaryStage);
         MainMenu mainMenu = new MainMenu(primaryStage);
         PreLude gameScreen = new PreLude(primaryStage);

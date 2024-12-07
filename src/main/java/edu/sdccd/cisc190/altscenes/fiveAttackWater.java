@@ -41,7 +41,7 @@ public class fiveAttackWater {
         statsText.setStyle("-fx-font-size: 14px; -fx-font-weight: bold;");
 
         // Initialize the buttons
-
+        // TODO: Give these buttons variable names so that you can infer their purpose
         oneButton = new Button("Attack with water (25% remaining)");
         twoButton = new Button("Dodge attack");
         threeButton = new Button("Left");
@@ -60,6 +60,7 @@ public class fiveAttackWater {
         continueButton.setVisible(false);
 
         // Button actions
+        // TODO: Instead of changing the text in this scene, create a new scene with this information and relevant buttons
         oneButton.setOnAction(e -> {
             // Update game status text for the twoButton scenario
             updateStats();  // Update the stats text
@@ -71,6 +72,7 @@ public class fiveAttackWater {
             hideOtherButtons();
         });
 
+        // TODO: Instead of changing the text in this scene, create a new scene with this information and relevant buttons
         twoButton.setOnAction(e -> {
             // Update game status text for the twoButton scenario
             gameStatus.setText("You slid under Ozzy the Ostrich and you ran as fast as you could, making your way out of the backstage and into the party area.\n" +
@@ -88,6 +90,7 @@ public class fiveAttackWater {
         });
 
         // Action for the threeButton
+        // TODO: Instead of changing the text in this scene, create a new scene with this information and relevant buttons
         threeButton.setOnAction(e -> {
             gameStatus.setText("You successfully dodged Daniel the Dog’s attack. But Ozzy the Ostrich caught up to you.");
             updateStats();  // Update the stats text
@@ -98,6 +101,7 @@ public class fiveAttackWater {
         });
 
         // Action for the fourButton
+        // TODO: Instead of changing the text in this scene, create a new scene with this information and relevant buttons
         fourButton.setOnAction(e -> {
             gameStatus.setText("You were attacked…");
             updateStats();  // Update the stats text
@@ -108,6 +112,7 @@ public class fiveAttackWater {
         });
 
         // Action for the fiveButton
+        // TODO: Instead of changing the text in this scene, create a new scene with this information and relevant buttons
         fiveButton.setOnAction(e -> {
             gameStatus.setText("You successfully dodged Daniel the Dog’s attack and narrowly avoided Ozzy the Ostrich, as he’s catching up to you.\n" +
                     "Both Daniel the Dog and Ozzy the Ostrich are chasing after you, and you realize that the office would leave you trapped.\n" +
@@ -144,6 +149,7 @@ public class fiveAttackWater {
         layout.setCenter(buttonBox);
 
         // Scene creation with appropriate size
+        // TODO: Make this window larger so it emcompasses the information without falling off the window
         scene = new Scene(layout, 400, 400);
     }
 

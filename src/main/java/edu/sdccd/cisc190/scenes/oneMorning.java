@@ -7,6 +7,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+// TODO: Create a BaseScene abstract class that contains each of the important functionality for each scene and extend each scene off of that class
 public class oneMorning {
     private Scene scene;
     private int conviction; // Variable to track the conviction stat
@@ -163,6 +164,7 @@ public class oneMorning {
         // Set the VBox containing buttons to the center of the BorderPane
 
         // Scene creation with appropriate size
+        // TODO: Make this window larger so it emcompasses the information without falling off the window
         scene = new Scene(layout, 400, 400);
     }
 

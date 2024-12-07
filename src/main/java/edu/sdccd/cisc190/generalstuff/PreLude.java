@@ -8,6 +8,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+// TODO: Create a BaseScene abstract class that contains each of the important functionality for each scene and extend each scene off of that class
 public class PreLude {
     private Scene scene;
 
@@ -23,11 +24,15 @@ public class PreLude {
                 "There’s the door to the main stage on your left, a table filled with monitors of the different cameras around the restaurant, " +
                 "a fan on top that barely works, and of course, a flashlight and a badge on your moldy chair " +
                 "that you’re sure hasn’t been cleaned in weeks… you have a bad feeling about this. How… cliche.\n");
+        // TODO: Make the font-size larger so it is easier to read
+        // TODO: Use a "next" button to progress through the story one line at a time
         gameStatus.setStyle("-fx-font-size: 9px; -fx-font-weight: bold;");
 
         // Create the display for stats (Conviction and Madness)
         Text statsText = new Text("Conviction: " + conviction + " | Madness: " + madness);
         statsText.setStyle("-fx-font-size: 14px; -fx-font-weight: bold;");
+
+        // TODO: Make the game window black and text white to give it a more creepy feel
 
         // Create the action button
         Button actionButton = new Button("Feeling a little 12AM?");
@@ -48,6 +53,7 @@ public class PreLude {
         layout.setCenter(buttonLayout);
 
         // Create the scene with the layout and set the preferred size
+        // TODO: Make this window larger so it encompasses the information without falling off the window
         scene = new Scene(layout, 300, 400);
     }
 
