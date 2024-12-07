@@ -1,5 +1,8 @@
 package edu.sdccd.cisc190.altscenes;
 
+import edu.sdccd.cisc190.generalstuff.ExitGame;
+import edu.sdccd.cisc190.generalstuff.MainMenu;
+import edu.sdccd.cisc190.scenes.fiveMorning;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
@@ -7,72 +10,138 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class five1Morning {
-    private Scene scene;
-    private int conviction; // Variable to track the conviction stat
-    private int madness; // Variable to track the madness stat
-    private final Text gameStatus;
-    private final Text statsText; // Text to display the stats
+import javax.swing.*;
 
-    public five1Morning(Stage primaryStage) {
-        // Initial game status text
-        gameStatus = new Text("You are tired of these loud noises; still unsure if it’s hallucinations or reality, you just want to turn the power back on.\n" +
-                "You keep going to the eerie passageway, and then you see the Generator on the wall.\n" +
-                "You rush towards it, and you decide to look at the problem that’s causing the problems of the generator itself.\n" +
-                "It’s just a simple problem, you realize that it’s just turned off, so you just switch it back on, and the power turns back on.\n" +
-                "You feel relieved. Turn back, you see Mika the Monkey, standing still, getting ready to attack you.\n");
+public class fiveAttackWater {
+    private Scene scene;
+    private int conviction; // Track conviction stat
+    private int madness; // Track madness stat
+    private final Text gameStatus;
+    private final Text statsText;
+    private final Button oneButton;
+    private final Button twoButton;
+    private final Button threeButton;
+    private final Button fourButton;
+    private final Button fiveButton;
+    private final Button sixButton;
+    private final Button sevenButton;
+    private final Button continueButton; // Button for next actions
+
+    public fiveAttackWater(Stage primaryStage) {
+        // Show game status when the scene starts
+        gameStatus = new Text("You attacked Mika the Monkey by splashing water...\n");
         gameStatus.setStyle("-fx-font-size: 14px; -fx-font-weight: bold;");
 
-        // Text for displaying stats (conviction and madness)
+        // TODO: Set up player stats text (Conviction and Madness)
         statsText = new Text("Conviction: " + conviction + " | Madness: " + madness);
         statsText.setStyle("-fx-font-size: 14px; -fx-font-weight: bold;");
 
-        // Button actions
-        Button oneButton = new Button("Attack with a water bottle (50% remaining)");
-        conviction++; // Increase conviction by 1
-        oneButton.setStyle("-fx-font-size: 14px;");
-        // TODO: The game status is cleared when this button is clicked, but it should probably show a new message.
-        // Consider updating the game status text with a message like "You attacked with the water bottle!"
-        oneButton.setOnAction(e -> gameStatus.setText("You attacked Mika the Monkey with the water bottle!"));
-        oneButton.setOnAction(e -> primaryStage.setScene(new fiveAttackWater(primaryStage).getScene()));
+        // TODO: Initialize buttons for different choices
+        oneButton = new Button("Attack with water (25% remaining)");
+        twoButton = new Button("Dodge attack");
+        threeButton = new Button("Left");
+        fourButton = new Button("Middle");
+        fiveButton = new Button("Right");
+        sixButton = new Button("Continue");
+        sevenButton = new Button("Endings");
+        continueButton = new Button("Transition to 6 AM");
 
-        Button twoButton = new Button("Dodge attack");
-        madness++; // Increase madness by 1
-        twoButton.setStyle("-fx-font-size: 14px;");
-        // TODO: When the dodge button is clicked, the stats aren't updated on the screen.
-        // You should call `updateStats()` here to update the stats text.
-        twoButton.setOnAction(e -> {
-            updateStats(); // Update the stats after dodging
-            primaryStage.setScene(new fiveDodge(primaryStage).getScene());
+        // TODO: Set buttons to not visible at first
+        threeButton.setVisible(false);
+        fourButton.setVisible(false);
+        fiveButton.setVisible(false);
+        sixButton.setVisible(false);
+        sevenButton.setVisible(false);
+        continueButton.setVisible(false);
+
+        // TODO: Action for "Attack with water" button
+        oneButton.setOnAction(e -> {
+            updateStats();  // Update stats after action
+
+            sixButton.setVisible(true); // Show "Continue" button
+            hideOtherButtons(); // Hide other buttons
         });
 
-        // Create the BorderPane layout
+        // TODO: Action for "Dodge attack" button
+        twoButton.setOnAction(e -> {
+            gameStatus.setText("You slid under Ozzy the Ostrich...\n");
+            updateStats();  // Update stats
+
+            // TODO: Show more options
+            threeButton.setVisible(true);
+            fourButton.setVisible(true);
+            fiveButton.setVisible(true);
+
+            hideOtherButtons(); // Hide the first two buttons
+        });
+
+        // TODO: Action for "Left" button
+        threeButton.setOnAction(e -> {
+            gameStatus.setText("You dodged the attack...\n");
+            updateStats();  // Update stats
+
+            continueButton.setVisible(true); // Show "Continue" button
+            hideMoreButtons(); // Hide other buttons
+        });
+
+        // TODO: Action for "Middle" button
+        fourButton.setOnAction(e -> {
+            gameStatus.setText("You were attacked...\n");
+            updateStats();  // Update stats
+
+            sevenButton.setVisible(true); // Show "Endings" button
+            hideMoreButtons(); // Hide other buttons
+        });
+
+        // TODO: Action for "Right" button
+        fiveButton.setOnAction(e -> {
+            gameStatus.setText("You successfully dodged the attack...\n");
+            updateStats();  // Update stats
+
+            continueButton.setVisible(true); // Show "Continue" button
+            hideMoreButtons(); // Hide other buttons
+        });
+
+        // TODO: Action for "Continue" button (next scene)
+        sixButton.setOnAction(e -> primaryStage.setScene(new fiveAttackWaterMore(primaryStage).getScene()));
+        sevenButton.setOnAction(e -> primaryStage.setScene(new ExitGame(primaryStage).getScene()));
+        continueButton.setOnAction(e -> primaryStage.setScene(new ExitGame(primaryStage).getScene()));
+
+        // TODO: Create layout for the scene
         BorderPane layout = new BorderPane();
 
-        // Add game status text to the top
-        layout.setTop(gameStatus);
+        layout.setTop(gameStatus); // Add status text to the top
+        layout.setBottom(statsText); // Add stats text to the bottom
 
-        // Add stats text below the game status text
-        layout.setBottom(statsText);
+        // TODO: Arrange buttons vertically
+        VBox buttonBox = new VBox(10);
+        buttonBox.getChildren().addAll(oneButton, twoButton, threeButton, fourButton, fiveButton, sixButton, sevenButton, continueButton);
 
-        // Create a VBox to arrange buttons vertically
-        VBox buttonBox = new VBox(10);  // 10px spacing between buttons
-        buttonBox.getChildren().addAll(oneButton, twoButton);
+        layout.setCenter(buttonBox); // Place buttons in the center
 
-        // Set the VBox containing buttons to the center of the BorderPane
-        layout.setCenter(buttonBox);
-
-        // Scene creation with appropriate size
+        // TODO: Create the scene
         scene = new Scene(layout, 400, 400);
     }
 
-    // Method to update the stats text
+    // TODO: Method to update player stats text
     private void updateStats() {
         statsText.setText("Conviction: " + conviction + " | Madness: " + madness);
-        // TODO: Call this method whenever the stats change (conviction or madness) to keep the UI updated.
     }
 
-    // Getter for the scene
+    // TODO: Hide unnecessary buttons after an option is selected
+    private void hideOtherButtons() {
+        oneButton.setVisible(false);
+        twoButton.setVisible(false);
+    }
+
+    // TODO: Hide extra buttons after a choice is made
+    private void hideMoreButtons() {
+        threeButton.setVisible(false);
+        fourButton.setVisible(false);
+        fiveButton.setVisible(false);
+    }
+
+    // TODO: Getter for the scene
     public Scene getScene() {
         return scene;
     }
