@@ -13,7 +13,6 @@ public class five1Morning {
     private int madness; // Variable to track the madness stat
     private final Text gameStatus;
     private final Text statsText;       // Text to display the stats
-
     public five1Morning(Stage primaryStage) {
         // Initial game status text
         gameStatus = new Text("You are tired of these loud noises; still unsure if it’s hallucinations or reality, you just want to turn the power back on.\n" +
@@ -22,7 +21,6 @@ public class five1Morning {
                 "It’s just a simple problem, you realize that it’s just turned off, so you just switch it back on, and the power turns back on.\n" +
                 "You feel relieved. Turn back, you see Mika the Monkey, standing still, getting ready to attack you.\n");
         gameStatus.setStyle("-fx-font-size: 14px; -fx-font-weight: bold;");
-
         // Text for displaying stats (conviction and madness)
         statsText = new Text("Conviction: " + conviction + " | Madness: " + madness);
         statsText.setStyle("-fx-font-size: 14px; -fx-font-weight: bold;");
