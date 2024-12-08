@@ -8,7 +8,6 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-
 public class MainMenu {
     private final Scene scene;
     private int conviction; // Stat for conviction
