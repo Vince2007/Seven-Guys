@@ -1,5 +1,4 @@
 package edu.sdccd.cisc190.generalstuff;
-
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
@@ -11,7 +10,8 @@ public class MainMenu {
     private final Scene scene;
     private int conviction; // stat for conviction
     private int madness;   // stat for madness
-
+    
+// TODO: Explain that this button increases the conviction and madness stats, and then moves the player to the next scene (PreLude).
     public MainMenu(Stage primaryStage) {
         conviction = 0;  // Initial conviction
         madness = 0;     // Initial madness
@@ -42,6 +42,7 @@ public class MainMenu {
             madness += 1;     // Increase madness
 
             // Pass conviction and madness to PreLude when transitioning
+            // TODO: Make sure the PreLude class handles the passed data (conviction and madness).
             PreLude preludeScene = new PreLude(primaryStage, conviction, madness);
             primaryStage.setScene(preludeScene.getScene());
         });
@@ -70,6 +71,7 @@ public class MainMenu {
         BorderPane.setAlignment(buttonLayout, javafx.geometry.Pos.CENTER);
 
         // Create the scene with the BorderPane layout
+        // TODO: Think about using a larger or smaller default scene size for better display on various devices the game can manage. 
         scene = new Scene(layout, 300, 400);
     }
 
