@@ -16,6 +16,8 @@ public class MainMenu {
         conviction = 0;  // Initial conviction
         madness = 0;     // Initial madness
 
+        // TODO: Document the purpose of each button and action in JavaDocs.
+
         // Create the buttons and description text
         Button startButton = new Button("Unlock the door (+1 conviction, +1 madness)");
         Button exitButton = new Button("Don't Unlock the door");
@@ -40,6 +42,8 @@ public class MainMenu {
         startButton.setOnAction(e -> {
             conviction += 1;  // Increase conviction
             madness += 1;     // Increase madness
+
+            // TODO: Validate stats and handle edge cases, like maximum or minimum conviction/madness.
 
             // Pass conviction and madness to PreLude when transitioning
             PreLude preludeScene = new PreLude(primaryStage, conviction, madness);
