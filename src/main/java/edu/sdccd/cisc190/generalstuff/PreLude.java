@@ -13,6 +13,7 @@ public class PreLude {
 
     // Constructor to accept conviction and madness
     public PreLude(Stage primaryStage, int conviction, int madness) {
+        // TODO: Ensure that stats (conviction and madness) are passed correctly.
         // Create the game status text
         Text gameStatus = new Text("What was that? Did the stat points that should be appearing on a “screen” increase. " +
                 "Apparently, everything you do is judge. Of Judgey devs. Huh what did we do-.\n" +

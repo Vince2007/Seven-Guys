@@ -7,14 +7,27 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+/**
+ * Represents the main menu of the game.
+ * Allows the player to start the game or exit the application.
+ */
+
 public class MainMenu {
     private final Scene scene;
     private int conviction; // stat for conviction
     private int madness;   // stat for madness
 
+    /**
+     * Constructs the MainMenu scene.
+     *
+     * @param primaryStage The primary stage for the application.
+     */
+
     public MainMenu(Stage primaryStage) {
         conviction = 0;  // Initial conviction
         madness = 0;     // Initial madness
+
+        // TODO: Document the purpose of each button and action in JavaDocs.
 
         // Create the buttons and description text
         Button startButton = new Button("Unlock the door (+1 conviction, +1 madness)");
@@ -40,6 +53,8 @@ public class MainMenu {
         startButton.setOnAction(e -> {
             conviction += 1;  // Increase conviction
             madness += 1;     // Increase madness
+
+            // TODO: Validate stats and handle edge cases, like maximum or minimum conviction/madness.
 
             // Pass conviction and madness to PreLude when transitioning
             PreLude preludeScene = new PreLude(primaryStage, conviction, madness);
@@ -72,6 +87,12 @@ public class MainMenu {
         // Create the scene with the BorderPane layout
         scene = new Scene(layout, 300, 400);
     }
+
+    /**
+     * Retrieves the MainMenu scene.
+     *
+     * @return The MainMenu scene.
+     */
 
     // Getter for the scene
     public Scene getScene() {

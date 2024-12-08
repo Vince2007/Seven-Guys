@@ -10,6 +10,8 @@ public class TitleScreen {
     private final Scene scene;
 
     public TitleScreen(Stage primaryStage) {
+        // TODO: Add a JavaDoc comment explaining the purpose of this class.
+        
         // Create the title text
         Text titleText = new Text("The NightShift at SevenGuys\n" +
                 "Isn't entirely perfect, but... it works!!!");
