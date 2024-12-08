@@ -3,7 +3,18 @@ package edu.sdccd.cisc190.generalstuff;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
+/**
+* Main entry point for the application.
+ * Initializes and displays the TitleScreen, MainMenu, and PreLude scenes.
+ */
+
 public class MainGame extends Application {
+
+    /**
+     * Starts the JavaFX application and sets the initial scene.
+     *
+     * @param primaryStage The primary stage for this application.
+     */
 
     @Override
     public void start(Stage primaryStage) 
@@ -20,6 +31,12 @@ public class MainGame extends Application {
         primaryStage.setScene(titleScreen.getScene());
         primaryStage.show();
     }
+
+    /**
+     * The main method to launch the application.
+     *
+     * @param args Command-line arguments passed to the application.
+     */
 
     public static void main(String[] args) {
         // TODO: Handle any exceptions that could arise during game launch (e.g., missing resources).
