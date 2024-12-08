@@ -20,6 +20,7 @@ public class MainMenu {
         Button startButton = new Button("Unlock the door (+1 conviction, +1 madness)");
         Button exitButton = new Button("Don't Unlock the door");
 
+        // TODO: Make sure this description text provides sufficient context to the player
         Text description = new Text("You’re the new guy working in Seven Guys, a local burger shop that on the outside, is a fun and exciting place to eat at, " +
                 "filled with yummy food and a huge-ass party stage with cool party rooms, and of course, " +
                 "the main attraction: The High Fives. But behind closed doors, a different story appears.\n" +
@@ -41,17 +42,20 @@ public class MainMenu {
             conviction += 1;  // Increase conviction
             madness += 1;     // Increase madness
 
-            // Pass conviction and madness to PreLude when transitioning
-            PreLude preludeScene = new PreLude(primaryStage, conviction, madness);
-            primaryStage.setScene(preludeScene.getScene());
+            // TODO: Ensure PreLude scene is initialized properly and stats are passed correctly
+            PreLude preludeScene = new PreLude(primaryStage, conviction, madness); // Passing stats to PreLude
+            primaryStage.setScene(preludeScene.getScene());  // Transition to the next scene
         });
 
         // Action to exit the application
-        exitButton.setOnAction(e -> primaryStage.close());
+        exitButton.setOnAction(e -> primaryStage.close());  // TODO: Consider adding confirmation before exiting
 
         // Create a text element to display stats
         Text stats = new Text("Conviction: " + conviction + " | Madness: " + madness);
         stats.setStyle("-fx-font-size: 14px; -fx-font-weight: bold;");
+
+        // TODO: Consider adding more interaction or buttons for different paths in the game
+        // TODO: Add logic for updating the stats (conviction and madness) dynamically as the game progresses
 
         // Create the BorderPane layout
         BorderPane layout = new BorderPane();

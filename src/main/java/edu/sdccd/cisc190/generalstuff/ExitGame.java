@@ -26,16 +26,16 @@ public class ExitGame {
         // Exit button action
         exitButton.setOnAction(e -> {
             // Show confirmation alert before exiting
-            showExitConfirmation(primaryStage);
+            showExitConfirmation(primaryStage); // TODO: Ensure that this method properly handles the stage
         });
 
         // Create the BorderPane layout
         BorderPane layout = new BorderPane();
-        layout.setTop(exitMessage);
-        layout.setCenter(exitButton);
+        layout.setTop(exitMessage); // TODO: Ensure text layout looks good for different screen sizes
+        layout.setCenter(exitButton); // TODO: Ensure button is centered properly
 
         // Create the scene with appropriate size
-        scene = new Scene(layout, 300, 200);
+        scene = new Scene(layout, 300, 200); // TODO: Adjust scene size if needed for better UX
     }
 
     // Method to display a confirmation dialog
@@ -49,12 +49,15 @@ public class ExitGame {
         confirmationDialog.showAndWait().ifPresent(response -> {
             if (response.getText().equals("OK")) {
                 Platform.exit();  // Exit the game
+            } else {
+                // TODO: Handle the case where the user cancels the exit
+                // Perhaps close the confirmation dialog or restore focus to the primary stage
             }
         });
     }
 
     // Getter for the scene
     public Scene getScene() {
-        return scene;
+        return scene; // TODO: Consider any edge cases where the scene might need to be reset
     }
 }

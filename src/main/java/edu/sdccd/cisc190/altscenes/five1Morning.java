@@ -12,7 +12,7 @@ public class five1Morning {
     private int conviction; // Variable to track the conviction stat
     private int madness; // Variable to track the madness stat
     private final Text gameStatus;
-    private final Text statsText;       // Text to display the stats
+    private final Text statsText; // Text to display the stats
 
     public five1Morning(Stage primaryStage) {
         // Initial game status text
@@ -26,17 +26,25 @@ public class five1Morning {
         // Text for displaying stats (conviction and madness)
         statsText = new Text("Conviction: " + conviction + " | Madness: " + madness);
         statsText.setStyle("-fx-font-size: 14px; -fx-font-weight: bold;");
+
         // Button actions
         Button oneButton = new Button("Attack with a water bottle (50% remaining)");
-        conviction++;
+        conviction++; // Increase conviction by 1
         oneButton.setStyle("-fx-font-size: 14px;");
-        oneButton.setOnAction(e -> gameStatus.setText(""));
+        // TODO: The game status is cleared when this button is clicked, but it should probably show a new message.
+        // Consider updating the game status text with a message like "You attacked with the water bottle!"
+        oneButton.setOnAction(e -> gameStatus.setText("You attacked Mika the Monkey with the water bottle!"));
         oneButton.setOnAction(e -> primaryStage.setScene(new fiveAttackWater(primaryStage).getScene()));
 
         Button twoButton = new Button("Dodge attack");
-        madness++;
+        madness++; // Increase madness by 1
         twoButton.setStyle("-fx-font-size: 14px;");
-        twoButton.setOnAction(e -> primaryStage.setScene(new fiveDodge(primaryStage).getScene()));
+        // TODO: When the dodge button is clicked, the stats aren't updated on the screen.
+        // You should call `updateStats()` here to update the stats text.
+        twoButton.setOnAction(e -> {
+            updateStats(); // Update the stats after dodging
+            primaryStage.setScene(new fiveDodge(primaryStage).getScene());
+        });
 
         // Create the BorderPane layout
         BorderPane layout = new BorderPane();
@@ -61,6 +69,7 @@ public class five1Morning {
     // Method to update the stats text
     private void updateStats() {
         statsText.setText("Conviction: " + conviction + " | Madness: " + madness);
+        // TODO: Call this method whenever the stats change (conviction or madness) to keep the UI updated.
     }
 
     // Getter for the scene
