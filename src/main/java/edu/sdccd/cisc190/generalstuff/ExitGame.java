@@ -9,10 +9,20 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+/**
+ * Manages the exit confirmation screen of the game.
+ */
+
 public class ExitGame {
 
     private Scene scene;
     private final Button exitButton;
+
+     /**
+     * Constructs the ExitGame scene.
+     *
+     * @param primaryStage The primary stage for the application.
+     */
 
     public ExitGame(Stage primaryStage) {
         // TODO: Add a JavaDoc comment explaining the purpose of this class and its methods.
@@ -39,6 +49,13 @@ public class ExitGame {
         // Create the scene with appropriate size
         scene = new Scene(layout, 300, 200);
     }
+
+    /**
+     * Displays a confirmation dialog for exiting the game.
+     *
+     * @param primaryStage The primary stage for the application.
+     */
+
     // TODO: Add error handling if the confirmation dialog fails to show.
 
     // Method to display a confirmation dialog
@@ -55,6 +72,12 @@ public class ExitGame {
             }
         });
     }
+
+    /**
+     * Retrieves the ExitGame scene.
+     *
+     * @return The ExitGame scene.
+     */
 
     // Getter for the scene
     public Scene getScene() {
