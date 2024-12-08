@@ -1,5 +1,8 @@
 package edu.sdccd.cisc190.stats;
 
+//TODO: Implement conviction and madness
+//TODO: Clarify the intent and purpose behind having conviction and madness
+
 public class GameState {
     private int conviction;
     private int madness;

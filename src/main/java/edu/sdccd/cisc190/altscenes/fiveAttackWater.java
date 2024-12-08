@@ -41,7 +41,6 @@ public class fiveAttackWater {
         statsText.setStyle("-fx-font-size: 14px; -fx-font-weight: bold;");
 
         // Initialize the buttons
-
         oneButton = new Button("Attack with water (25% remaining)");
         twoButton = new Button("Dodge attack");
         threeButton = new Button("Left");
@@ -61,14 +60,13 @@ public class fiveAttackWater {
 
         // Button actions
         oneButton.setOnAction(e -> {
-            // Update game status text for the twoButton scenario
             updateStats();  // Update the stats text
 
+            //TODO: Add logic to display additional choice buttons based on the player's action
             // Show the additional choice buttons
 
-            // Hide the other buttons to focus on choices
             sixButton.setVisible(true);
-            hideOtherButtons();
+            hideOtherButtons(); // Hide the irrelevant buttons after the action
         });
 
         twoButton.setOnAction(e -> {
@@ -78,13 +76,14 @@ public class fiveAttackWater {
                     "You see the party area and you see 3 rows that determine where you should go past.\n");
             updateStats();  // Update the stats text
 
+            //TODO: Add additional checks for button visibility based on the state of the game
             // Show the additional choice buttons
+
             threeButton.setVisible(true);
             fourButton.setVisible(true);
             fiveButton.setVisible(true);
-
             // Hide the other buttons to focus on choices
-            hideOtherButtons();
+            hideOtherButtons(); // Hide irrelevant buttons after selection
         });
 
         // Action for the threeButton
@@ -92,9 +91,11 @@ public class fiveAttackWater {
             gameStatus.setText("You successfully dodged Daniel the Dog’s attack. But Ozzy the Ostrich caught up to you.");
             updateStats();  // Update the stats text
 
+            //TODO: Add logic to transition to new game state after dodging
             // Show the continue button and hide other buttons
+
             continueButton.setVisible(true);
-            hideMoreButtons();
+            hideMoreButtons(); // Hide the irrelevant buttons after decision
         });
 
         // Action for the fourButton
@@ -102,9 +103,11 @@ public class fiveAttackWater {
             gameStatus.setText("You were attacked…");
             updateStats();  // Update the stats text
 
+            //TODO: Handle outcomes of attack for a more diverse gameplay experience
             // Show the continue button and hide other buttons
+
             sevenButton.setVisible(true);
-            hideMoreButtons();
+            hideMoreButtons(); // Hide additional buttons when moving forward
         });
 
         // Action for the fiveButton
@@ -117,9 +120,11 @@ public class fiveAttackWater {
                     "You closed the door. It wasn’t 6 AM, but it didn't matter. You drove away.\n");
             updateStats();  // Update the stats text
 
+            //TODO: Add decision making for choosing between multiple escape options
             // Show the continue button and hide other buttons
+
             continueButton.setVisible(true);
-            hideMoreButtons();
+            hideMoreButtons(); // Hide additional choices after action
         });
 
         // Action for continueButton (transition to the next scene)
@@ -156,6 +161,8 @@ public class fiveAttackWater {
     private void hideOtherButtons() {
         oneButton.setVisible(false);
         twoButton.setVisible(false);
+
+        //TODO: Add any conditions that control when to show/hide buttons
         // Hide oneButton and continueButton as needed
     }
 
@@ -164,6 +171,8 @@ public class fiveAttackWater {
         threeButton.setVisible(false);
         fourButton.setVisible(false);
         fiveButton.setVisible(false);
+
+        //TODO: Implement logic to hide buttons that are no longer relevant after decision
     }
 
     // Getter for the scene
