@@ -77,4 +77,9 @@ public class MainMenu {
     public Scene getScene() {
         return scene;
     }
+
+    // TODO: Add a comment explaining why we set the font size and weight for description and stats
+    // TODO: Add a comment explaining the significance of increasing conviction and madness in startButton's action
+    // TODO: Comment the action for the exitButton to explain that it closes the application when clicked
+    // TODO: Add a comment explaining why BorderPane layout is used and why we place certain elements in specific regions
 }
