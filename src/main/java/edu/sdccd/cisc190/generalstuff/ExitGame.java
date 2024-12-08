@@ -15,6 +15,8 @@ public class ExitGame {
     private final Button exitButton;
 
     public ExitGame(Stage primaryStage) {
+        // TODO: Add a JavaDoc comment explaining the purpose of this class and its methods.
+        
         // Exit message text
         Text exitMessage = new Text("Are you sure you want to quit the game?");
         exitMessage.setStyle("-fx-font-size: 14px; -fx-font-weight: bold;");
@@ -37,6 +39,7 @@ public class ExitGame {
         // Create the scene with appropriate size
         scene = new Scene(layout, 300, 200);
     }
+    // TODO: Add error handling if the confirmation dialog fails to show.
 
     // Method to display a confirmation dialog
     private void showExitConfirmation(Stage primaryStage) {
