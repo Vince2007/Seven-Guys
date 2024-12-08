@@ -13,7 +13,8 @@ public class MainGame extends Application {
         TitleScreen titleScreen = new TitleScreen(primaryStage);
         MainMenu mainMenu = new MainMenu(primaryStage);
         PreLude gameScreen = new PreLude(primaryStage);
-
+    
+        // TODO: Document the purpose of each scene in JavaDocs.
         // Set the title screen as the initial scene
         primaryStage.setTitle("NightShift at Seven Guys (UNFINISHED VERSION)");
         primaryStage.setScene(titleScreen.getScene());
@@ -21,6 +22,7 @@ public class MainGame extends Application {
     }
 
     public static void main(String[] args) {
+        // TODO: Handle any exceptions that could arise during game launch (e.g., missing resources).
         launch(args);
     }
 }
