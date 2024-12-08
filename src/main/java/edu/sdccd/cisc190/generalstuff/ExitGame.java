@@ -47,6 +47,7 @@ public class ExitGame {
 
         // Handle user response
         confirmationDialog.showAndWait().ifPresent(response -> {
+             // TODO: Explain how you can handle Cancel option more explicitly (what happens if the user clicks Cancel?)
             if (response.getText().equals("OK")) {
                 Platform.exit();  // Exit the game
             }
