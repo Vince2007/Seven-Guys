@@ -12,7 +12,9 @@ import javafx.stage.Stage;
 
 public class fiveMorning {
     private Scene scene;
+    // TODO: Try to track the user's conviction stat 
     private int conviction; // Variable to track the conviction stat
+    // TODO: Try to track the user's maddness stat 
     private int madness; // Variable to track the madness stat
     private final Text gameStatus;
     private final Text statsText;       // Text to display the stats
@@ -43,7 +45,8 @@ public class fiveMorning {
                 "You put Daniel the Dog back in place and decide to return to the Generator.\n" +
                 "But you see that Rumble the Racoon wasn’t there, you turn back, and he’s behind you.\n" +
                 "He attacks you."));
-        oneButton.setOnAction(e -> primaryStage.setScene(new ExitGame(primaryStage).getScene()));
+        oneButton.setOnAction(e -> primaryStage.setScene(new ExitGame(primaryStage).getScene())); // TODO: This sets the scene to ExitGame, but it might be better intended to do this after the game status is updated.
+
 
         Button twoButton = new Button("Go to the Generator");
         twoButton.setStyle("-fx-font-size: 14px;");
@@ -70,7 +73,7 @@ public class fiveMorning {
 
     // Method to update the stats text
     private void updateStats() {
-        statsText.setText("Conviction: " + conviction + " | Madness: " + madness);
+        statsText.setText("Conviction: " + conviction + " | Madness: " + madness); // TODO: You could update this method to change the stats dynamically during the game.
     }
 
     // Getter for the scene
