@@ -43,6 +43,7 @@ public class oneMorning {
         statsText.setStyle("-fx-font-size: 14px; -fx-font-weight: bold;");
 
         // Initialize buttons
+        // TODO: It would be better to handle repeated logic (like showing buttons and updating stats) through a helper method for clarity and to reduce redundancy.
         oneButton = new Button("Actually do your job");
         twoButton = new Button("Procrastinating is nice...");
         threeButton = new Button("Hide under the tables (+1 conviction)");
