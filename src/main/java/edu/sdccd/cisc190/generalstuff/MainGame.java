@@ -6,7 +6,9 @@ import javafx.stage.Stage;
 public class MainGame extends Application {
 
     @Override
-    public void start(Stage primaryStage) {
+    public void start(Stage primaryStage) 
+    // TODO: Add a README.md with instructions and the JDK version required for the project.
+        // TODO: Include a check for any necessary exceptions (for example, if the scenes cannot be loaded).
         // Create scenes for each part of the game
         TitleScreen titleScreen = new TitleScreen(primaryStage);
         MainMenu mainMenu = new MainMenu(primaryStage);
