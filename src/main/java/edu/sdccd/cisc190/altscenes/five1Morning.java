@@ -7,6 +7,10 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+/**
+ * Represents the morning scenario of the game where the player interacts with
+ * a generator and encounters Mika the Monkey.
+ */
 public class five1Morning {
     private Scene scene;
     private int conviction; // Variable to track the conviction stat
@@ -14,6 +18,12 @@ public class five1Morning {
     private final Text gameStatus;
     private final Text statsText;       // Text to display the stats
 
+    /**
+     * Constructor that initializes the game scenario for the morning.
+     * Sets up the game status, buttons for player actions, and layout.
+     *
+     * @param primaryStage The main stage of the application where the scene is displayed.
+     */
     public five1Morning(Stage primaryStage) {
         // Initial game status text
         gameStatus = new Text("You are tired of these loud noises; still unsure if it’s hallucinations or reality, you just want to turn the power back on.\n" +
@@ -58,11 +68,19 @@ public class five1Morning {
         scene = new Scene(layout, 400, 400);
     }
 
+    /**
+     * Updates the displayed stats (conviction and madness) in the game.
+     */
     // Method to update the stats text
     private void updateStats() {
         statsText.setText("Conviction: " + conviction + " | Madness: " + madness);
     }
 
+    /**
+     * Getter for the scene.
+     *
+     * @return The scene that contains the layout and buttons for the game.
+     */
     // Getter for the scene
     public Scene getScene() {
         return scene;

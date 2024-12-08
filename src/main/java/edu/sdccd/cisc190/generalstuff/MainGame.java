@@ -2,7 +2,8 @@ package edu.sdccd.cisc190.generalstuff;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
-
+// TODO: Make sure to capitalize all of your classes
+// TODO: You can delete MainMenu Class & Prelude Class since they are not seen to be used in your game
 public class MainGame extends Application {
 
     @Override
