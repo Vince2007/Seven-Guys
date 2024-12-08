@@ -26,17 +26,20 @@ public class five1Morning {
         // Text for displaying stats (conviction and madness)
         statsText = new Text("Conviction: " + conviction + " | Madness: " + madness);
         statsText.setStyle("-fx-font-size: 14px; -fx-font-weight: bold;");
-        // Button actions
+        // Button actions 
+        // TODO: Add a comment explaining that the first button represents the player's choice to attack with a water bottle. 
         Button oneButton = new Button("Attack with a water bottle (50% remaining)");
         conviction++;
         oneButton.setStyle("-fx-font-size: 14px;");
         oneButton.setOnAction(e -> gameStatus.setText(""));
-        oneButton.setOnAction(e -> primaryStage.setScene(new fiveAttackWater(primaryStage).getScene()));
+        oneButton.setOnAction(e -> primaryStage.setScene(new fiveAttackWater(primaryStage).getScene())); // TODO: Comment explaining the scene transition when this button is pressed.
 
+// TODO: Explain that the second button represents the player's choice to dodge the attack.
         Button twoButton = new Button("Dodge attack");
-        madness++;
+        madness++; // TODO: Explain why madness is being incremented here.
         twoButton.setStyle("-fx-font-size: 14px;");
-        twoButton.setOnAction(e -> primaryStage.setScene(new fiveDodge(primaryStage).getScene()));
+        twoButton.setOnAction(e -> primaryStage.setScene(new fiveDodge(primaryStage).getScene())); // TODO: Comment explaining the scene transition when this button is pressed.
+
 
         // Create the BorderPane layout
         BorderPane layout = new BorderPane();
@@ -48,6 +51,7 @@ public class five1Morning {
         layout.setBottom(statsText);
 
         // Create a VBox to arrange buttons vertically
+        // TODO: Explain why VBox is used here and what the argument 10 represents 
         VBox buttonBox = new VBox(10);  // 10px spacing between buttons
         buttonBox.getChildren().addAll(oneButton, twoButton);
 

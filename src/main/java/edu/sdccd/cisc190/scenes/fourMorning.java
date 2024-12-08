@@ -87,6 +87,7 @@ public class fourMorning {
             updateStats();  // Update the stats text
 
             // Show the continue button and hide other buttons
+            // TODO: Try showing the continue button and hide other buttons
             threeButton.setVisible(true);
             fourButton.setVisible(true);
             fiveButton.setVisible(true);
@@ -242,7 +243,7 @@ public class fourMorning {
         oneButton.setVisible(false);
         twoButton.setVisible(false);
     }
-
+// TODO: Trny adding a helper function to hide more buttons
     private void hideMoreButtons() {
         threeButton.setVisible(false);
         fourButton.setVisible(false);

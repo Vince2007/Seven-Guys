@@ -20,6 +20,7 @@ public class TitleScreen {
         startButton.setStyle("-fx-font-size: 20px;");
 
         // Create the MainMenu instance, but do not create the scene yet
+        // TODO: Make sure that the MainMenu class correctly handles passing the primaryStage and any other necessary data.
         MainMenu mainMenu = new MainMenu(primaryStage);
 
         // Set the action of the button to switch to the MainMenu scene
@@ -35,6 +36,7 @@ public class TitleScreen {
         layout.setCenter(startButton);
 
         // Create the scene with the layout and set the preferred size
+        // TODO: Consider making the scene size adjustable based on the screen or user preferences.
         scene = new Scene(layout, 400, 300);
     }
 

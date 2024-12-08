@@ -40,7 +40,7 @@ public class theFight {
         statsText.setStyle("-fx-font-size: 14px; -fx-font-weight: bold;");
 
         // Initialize the buttons
-
+// TODO: Briefly explain what these buttons represent in the game. For example, the buttons allow the player to make choices during the fight.
         oneButton = new Button("Attack");
         twoButton = new Button("Dodge");
         threeButton = new Button("Attack");
@@ -53,6 +53,7 @@ public class theFight {
         continueButton = new Button("Transition to 6 AM");
 
         // Set initial visibility of some buttons
+        // TODO: Comment explaining that some buttons are initially hidden until needed for certain scenarios in the game.
         threeButton.setVisible(false);
         fourButton.setVisible(false);
         fiveButton.setVisible(false);
@@ -88,6 +89,7 @@ public class theFight {
         });
 
         // Action for the threeButton
+        // TODO: Comment explaining that this is the player's choice to attack during a certain moment in the game.
         threeButton.setOnAction(e -> {
             gameStatus.setText("Rumble now thinks you’re going to dodge.\n" +
                     "So he rushes towards you, but you attack him by landing a punch on his jaw.\n" +
@@ -172,6 +174,7 @@ public class theFight {
 
         // Scene creation with appropriate size
         scene = new Scene(layout, 400, 400);
+        // TODO: You can adjust the scene layout to make the game either more big or more smaller
     }
 
     // Method to update the stats text
