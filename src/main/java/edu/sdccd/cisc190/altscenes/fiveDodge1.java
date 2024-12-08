@@ -1,6 +1,5 @@
 package edu.sdccd.cisc190.altscenes;
 
-
 import edu.sdccd.cisc190.generalstuff.ExitGame;
 import edu.sdccd.cisc190.scenes.fiveMorning;
 import javafx.scene.Scene;
@@ -10,7 +9,6 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-
 public class fiveDodge1 {
     private Scene scene;
     private int conviction; // Variable to track the conviction stat
@@ -18,14 +16,12 @@ public class fiveDodge1 {
     private final Text gameStatus;
     private final Text statsText;       // Text to display the stats
 
-
     // Declare buttons as instance variables to use them in different methods
     private final Button oneButton;
     private final Button twoButton;
     private final Button threeButton;
     private final Button fourButton;
     private final Button continueButton;
-
 
     public fiveDodge1(Stage primaryStage) {
         // Initial game status text
@@ -36,11 +32,9 @@ public class fiveDodge1 {
                 "They’re heading to you on both sides. You have the water, what are you going to do???\n");
         gameStatus.setStyle("-fx-font-size: 14px; -fx-font-weight: bold;");
 
-
         // Text for displaying stats (conviction and madness)
         statsText = new Text("Conviction: " + conviction + " | Madness: " + madness);
         statsText.setStyle("-fx-font-size: 14px; -fx-font-weight: bold;");
-
 
         // Initialize buttons
         oneButton = new Button("Attack Daniel the Dog with water (25% remaining)");
@@ -49,7 +43,6 @@ public class fiveDodge1 {
         fourButton = new Button("End 9 - Death");
         continueButton = new Button("Transition to 6 AM");
 
-
         // Set styles for the buttons
         oneButton.setStyle("-fx-font-size: 14px;");
         twoButton.setStyle("-fx-font-size: 14px;");
@@ -57,93 +50,78 @@ public class fiveDodge1 {
         fourButton.setStyle("-fx-font-size: 14px;");
         continueButton.setStyle("-fx-font-size: 14px;");
 
-
         // Set the continue button to be initially invisible
-        fourButton.setVisible(false);
-        continueButton.setVisible(false);
-
+        fourButton.setVisible(false); //TODO: Initialize fourButton visibility as false until certain actions are triggered.
+        continueButton.setVisible(false); //TODO: Set continueButton visibility to false initially.
 
         // Button actions
         oneButton.setOnAction(e -> {
             gameStatus.setText("You disabled Daniel the Dog, but Rumble the Racoon was able to attack you fully.");
-            updateStats();  // Update the stats text
-
+            updateStats();  //TODO: Update stats after action is completed.
 
             // Show the continue button and hide other buttons
-            fourButton.setVisible(true);
-            hideOtherButtons();
+            fourButton.setVisible(true); //TODO: Make fourButton visible after oneButton action.
+            hideOtherButtons(); //TODO: Call method to hide irrelevant buttons.
         });
-
 
         twoButton.setOnAction(e -> {
             gameStatus.setText("You disabled Rumble the Racoon, but Daniel the Dog was able to attack you fully.");
-            updateStats();  // Update the stats text
-
+            updateStats();  //TODO: Update stats after action is completed.
 
             // Show the continue button and hide other buttons
-            fourButton.setVisible(true);
-            hideOtherButtons();
+            fourButton.setVisible(true); //TODO: Make fourButton visible after twoButton action.
+            hideOtherButtons(); //TODO: Call method to hide irrelevant buttons.
         });
-
 
         threeButton.setOnAction(e -> {
             gameStatus.setText("You dodged their attack, went underneath the table, and rushed towards the door.\n" +
                     "You sense both Daniel the Dog and Rumble the Racoon and once you get to the door and open it, you do a 180 and splash water on them as your final ditch effort, and immediately close the door.\n" +
                     "It wasn’t even 6 AM yet, but you don’t care. You ran towards your car and drove away.");
-            updateStats();  // Update the stats text
-
+            updateStats();  //TODO: Update stats after action is completed.
 
             // Show the continue button and hide other buttons
-            continueButton.setVisible(true);
-            hideOtherButtons();
+            continueButton.setVisible(true); //TODO: Make continueButton visible after threeButton action.
+            hideOtherButtons(); //TODO: Call method to hide irrelevant buttons.
         });
-        // Action for continueButton to change to next scene
-        fourButton.setOnAction(e -> primaryStage.setScene(new fiveAttackWater(primaryStage).getScene()));
-        continueButton.setOnAction(e -> primaryStage.setScene(new ExitGame(primaryStage).getScene()));
 
+        // Action for continueButton to change to next scene
+        fourButton.setOnAction(e -> primaryStage.setScene(new fiveAttackWater(primaryStage).getScene())); //TODO: Transition to next scene (fiveAttackWater).
+        continueButton.setOnAction(e -> primaryStage.setScene(new ExitGame(primaryStage).getScene())); //TODO: Transition to ExitGame scene.
 
         // Create the BorderPane layout
         BorderPane layout = new BorderPane();
 
-
         // Add game status text to the top
         layout.setTop(gameStatus);
-
 
         // Add stats text below the game status text
         layout.setBottom(statsText);
 
-
         // Create a VBox to arrange buttons vertically
-        VBox buttonBox = new VBox(10);  // 10px spacing between buttons
+        VBox buttonBox = new VBox(10);  //TODO: Add 10px spacing between buttons in the VBox layout.
         buttonBox.getChildren().addAll(oneButton, twoButton, threeButton, continueButton);
-
 
         // Set the VBox containing buttons to the center of the BorderPane
         layout.setCenter(buttonBox);
 
-
         // Scene creation with appropriate size
-        scene = new Scene(layout, 400, 400);
+        scene = new Scene(layout, 400, 400); //TODO: Set the size of the scene.
     }
-
 
     // Method to update the stats text
     private void updateStats() {
-        statsText.setText("Conviction: " + conviction + " | Madness: " + madness);
+        statsText.setText("Conviction: " + conviction + " | Madness: " + madness); //TODO: Update stats display with current conviction and madness values.
     }
-
 
     // Helper method to hide the action buttons
     private void hideOtherButtons() {
-        oneButton.setVisible(false);
-        twoButton.setVisible(false);
-        threeButton.setVisible(false);
+        oneButton.setVisible(false); //TODO: Hide the oneButton after it's used.
+        twoButton.setVisible(false); //TODO: Hide the twoButton after it's used.
+        threeButton.setVisible(false); //TODO: Hide the threeButton after it's used.
     }
-
 
     // Getter for the scene
     public Scene getScene() {
-        return scene;
+        return scene; //TODO: Return the current scene.
     }
 }
