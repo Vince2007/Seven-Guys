@@ -11,7 +11,8 @@ public class MainMenu {
     private final Scene scene;
     private int conviction; // stat for conviction
     private int madness;   // stat for madness
-
+//TODO What should be improved: Styles like font size and weight are repeated multiple times in the code, making it less maintainable and prone to inconsistencies.
+    //TODO How to improve it: Define reusable constants for styles and appply them whenevr needed
     public MainMenu(Stage primaryStage) {
         conviction = 0;  // Initial conviction
         madness = 0;     // Initial madness

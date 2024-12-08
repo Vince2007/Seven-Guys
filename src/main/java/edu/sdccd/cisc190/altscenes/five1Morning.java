@@ -35,6 +35,8 @@ public class five1Morning {
         madness++;
         twoButton.setStyle("-fx-font-size: 14px;");
         twoButton.setOnAction(e -> primaryStage.setScene(new fiveDodge(primaryStage).getScene()));
+//TODO What should be improved: Conviction++ and Madness++ are outside the button actions, meaning they are incremented when the five1Morning constructer runs, not when the button is clicked.
+        //TODO How to improve it: TODO move the stat increments inside the setonAction handlers of the repective buttons. Then, call the updateStats() method to ensure the changes are displayed.
 
         // Create the BorderPane layout
         BorderPane layout = new BorderPane();
