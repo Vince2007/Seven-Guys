@@ -9,11 +9,20 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+/**
+ * Manages the exit game confirmation screen.
+ * Provides an option for users to confirm exiting the application.
+ */
 public class ExitGame {
 
     private Scene scene;
     private final Button exitButton;
 
+    /**
+     * Creates the ExitGame screen.
+     *
+     * @param primaryStage the primary stage for this application
+     */
     public ExitGame(Stage primaryStage) {
         // Exit message text
         Text exitMessage = new Text("Are you sure you want to quit the game?");

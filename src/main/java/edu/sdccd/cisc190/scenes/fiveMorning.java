@@ -17,6 +17,12 @@ public class fiveMorning {
     private final Text gameStatus;
     private final Text statsText;       // Text to display the stats
 
+    /**
+     * Constructor for the fiveMorning class.
+     * Initializes the game narrative, buttons, and layout for this scene.
+     *
+     * @param primaryStage The primary stage of the application.
+     */
     public fiveMorning(Stage primaryStage) {
         // Initial game status text
         gameStatus = new Text("Numerous checks on the facility maps and notes from previous security guards left in the drawers, have informed you that the generators are inconveniently located on the Backstage, so you prepare your trip to get there.\n" +
@@ -73,6 +79,11 @@ public class fiveMorning {
         statsText.setText("Conviction: " + conviction + " | Madness: " + madness);
     }
 
+    /**
+     * Returns the Scene object associated with this game state.
+     *
+     * @return The JavaFX Scene for this screen.
+     */
     // Getter for the scene
     public Scene getScene() {
         return scene;
