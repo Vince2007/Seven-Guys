@@ -13,7 +13,6 @@ public class five1Morning {
     private int madness; // Variable to track the madness stat
     private final Text gameStatus;
     private final Text statsText;       // Text to display the stats
-
     public five1Morning(Stage primaryStage) {
         // Initial game status text
         gameStatus = new Text("You are tired of these loud noises; still unsure if it’s hallucinations or reality, you just want to turn the power back on.\n" +
@@ -22,21 +21,29 @@ public class five1Morning {
                 "It’s just a simple problem, you realize that it’s just turned off, so you just switch it back on, and the power turns back on.\n" +
                 "You feel relieved. Turn back, you see Mika the Monkey, standing still, getting ready to attack you.\n");
         gameStatus.setStyle("-fx-font-size: 14px; -fx-font-weight: bold;");
-
         // Text for displaying stats (conviction and madness)
         statsText = new Text("Conviction: " + conviction + " | Madness: " + madness);
         statsText.setStyle("-fx-font-size: 14px; -fx-font-weight: bold;");
         // Button actions
         Button oneButton = new Button("Attack with a water bottle (50% remaining)");
-        conviction++;
         oneButton.setStyle("-fx-font-size: 14px;");
-        oneButton.setOnAction(e -> gameStatus.setText(""));
-        oneButton.setOnAction(e -> primaryStage.setScene(new fiveAttackWater(primaryStage).getScene()));
+        oneButton.setOnAction(e -> {
+            conviction++; // Increment conviction when this button is clicked
+            updateStats(); // Update stats display
+            primaryStage.setScene(new fiveAttackWater(primaryStage).getScene());
+        });
+
 
         Button twoButton = new Button("Dodge attack");
-        madness++;
         twoButton.setStyle("-fx-font-size: 14px;");
-        twoButton.setOnAction(e -> primaryStage.setScene(new fiveDodge(primaryStage).getScene()));
+        twoButton.setOnAction(e -> {
+            madness++; // Increment madness when this button is clicked
+            updateStats(); // Update stats display
+            primaryStage.setScene(new fiveDodge(primaryStage).getScene());
+        });
+
+//TODO What should be improved: Conviction++ and Madness++ are outside the button actions, meaning they are incremented when the five1Morning constructer runs, not when the button is clicked.
+        //TODO How to improve it: TODO move the stat increments inside the setonAction handlers of the repective buttons. Then, call the updateStats() method to ensure the changes are displayed.
 
         // Create the BorderPane layout
         BorderPane layout = new BorderPane();
