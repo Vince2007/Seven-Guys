@@ -47,6 +47,7 @@ public class PreLude {
         VBox buttonLayout = new VBox(10, actionButton);
         layout.setCenter(buttonLayout);
 
+        // TODO: make window large enough to fit all text onto the screen
         // Create the scene with the layout and set the preferred size
         scene = new Scene(layout, 300, 400);
     }

@@ -9,6 +9,11 @@ import javafx.stage.Stage;
 public class TitleScreen {
     private final Scene scene;
 
+    /**
+     * Constructs the title screen
+     *
+     * @param primaryStage
+     */
     public TitleScreen(Stage primaryStage) {
         // Create the title text
         Text titleText = new Text("The NightShift at SevenGuys\n" +
