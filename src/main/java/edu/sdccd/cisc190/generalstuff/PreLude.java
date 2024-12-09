@@ -13,6 +13,7 @@ public class PreLude {
 
     // Constructor to accept conviction and madness
     public PreLude(Stage primaryStage, int conviction, int madness) {
+        // TODO: Set initial values for conviction and madness if not already set before calling constructor.
         // Create the game status text
         Text gameStatus = new Text("What was that? Did the stat points that should be appearing on a “screen” increase. " +
                 "Apparently, everything you do is judge. Of Judgey devs. Huh what did we do-.\n" +
@@ -24,15 +25,18 @@ public class PreLude {
                 "a fan on top that barely works, and of course, a flashlight and a badge on your moldy chair " +
                 "that you’re sure hasn’t been cleaned in weeks… you have a bad feeling about this. How… cliche.\n");
         gameStatus.setStyle("-fx-font-size: 9px; -fx-font-weight: bold;");
+        // TODO: Explain what the gameStatus text represents in the game (Is this part of the story intro?).
 
         // Create the display for stats (Conviction and Madness)
         Text statsText = new Text("Conviction: " + conviction + " | Madness: " + madness);
         statsText.setStyle("-fx-font-size: 14px; -fx-font-weight: bold;");
+        // TODO: Ensure the conviction and madness values are updated correctly in the game.
 
         // Create the action button
         Button actionButton = new Button("Feeling a little 12AM?");
         actionButton.setStyle("-fx-font-size: 14px;");
         actionButton.setOnAction(e -> primaryStage.setScene(new twelveMorning(primaryStage).getScene()));
+        // TODO: Provide more explanation of what happens when the action button is clicked (Transition to the next scene?).
 
         // Set up the BorderPane layout
         BorderPane layout = new BorderPane();
@@ -46,9 +50,11 @@ public class PreLude {
         // Add the actionButton to the center of the BorderPane
         VBox buttonLayout = new VBox(10, actionButton);
         layout.setCenter(buttonLayout);
+        // TODO: Make sure the button layout is centered and works well across different screen sizes.
 
         // Create the scene with the layout and set the preferred size
         scene = new Scene(layout, 300, 400);
+        // TODO: Set the scene size and layout dynamically based on screen resolution or user preferences.
     }
 
     public PreLude(Stage primaryStage) {
