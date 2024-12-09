@@ -11,8 +11,13 @@ public class MainMenu {
     private final Scene scene;
     private int conviction; // stat for conviction
     private int madness;   // stat for madness
-//TODO What should be improved: Styles like font size and weight are repeated multiple times in the code, making it less maintainable and prone to inconsistencies.
-    //TODO How to improve it: Define reusable constants for styles and appply them whenevr needed
+
+    // Define reusable constants for styles
+    private static final String TEXT_STYLE = "-fx-font-size: 14px; -fx-font-weight: bold;";
+    private static final String SMALL_TEXT_STYLE = "-fx-font-size: 9px; -fx-font-weight: bold;";
+
+    //TODO What should be improved: Styles like font size and weight are repeated multiple times in the code, making it less maintainable and prone to inconsistencies.
+    //TODO How to improve it: Define reusable constants for styles and apply them whenever needed
     public MainMenu(Stage primaryStage) {
         conviction = 0;  // Initial conviction
         madness = 0;     // Initial madness
@@ -20,6 +25,10 @@ public class MainMenu {
         // Create the buttons and description text
         Button startButton = new Button("Unlock the door (+1 conviction, +1 madness)");
         Button exitButton = new Button("Don't Unlock the door");
+
+        // Apply styles to buttons
+        startButton.setStyle(TEXT_STYLE);
+        exitButton.setStyle(TEXT_STYLE);
 
         Text description = new Text("You’re the new guy working in Seven Guys, a local burger shop that on the outside, is a fun and exciting place to eat at, " +
                 "filled with yummy food and a huge-ass party stage with cool party rooms, and of course, " +
@@ -35,7 +44,7 @@ public class MainMenu {
                 "Groaning you grab the key from under the rock and prepare to open the door. " +
                 "Suddenly, the unexplainable urge to do nothing was filling your mind. " +
                 "“Is this a tutorial?” (Pick the options presented to make your choice, choose wisely, well in this case you only have one but, you know, don’t fall too deep~)\n");
-        description.setStyle("-fx-font-size: 9px; -fx-font-weight: bold;");
+        description.setStyle(SMALL_TEXT_STYLE);
 
         // Action for unlocking the door: Increase conviction and madness, then transition to PreLude scene
         startButton.setOnAction(e -> {
@@ -60,14 +69,14 @@ public class MainMenu {
         // Set the description text at the top of the layout
         layout.setTop(description);
 
-        // Set the buttons in the bottom region
+        // Set the buttons in the center region
         VBox buttonLayout = new VBox(10, startButton, exitButton);
         layout.setCenter(buttonLayout);
 
         // Set stats at the bottom of the layout
         layout.setBottom(stats);
 
-        // Align buttons to center within the bottom region
+        // Align buttons to center within the center region
         BorderPane.setAlignment(buttonLayout, javafx.geometry.Pos.CENTER);
 
         // Create the scene with the BorderPane layout

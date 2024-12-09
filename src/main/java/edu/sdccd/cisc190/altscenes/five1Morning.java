@@ -26,15 +26,22 @@ public class five1Morning {
         statsText.setStyle("-fx-font-size: 14px; -fx-font-weight: bold;");
         // Button actions
         Button oneButton = new Button("Attack with a water bottle (50% remaining)");
-        conviction++;
         oneButton.setStyle("-fx-font-size: 14px;");
-        oneButton.setOnAction(e -> gameStatus.setText(""));
-        oneButton.setOnAction(e -> primaryStage.setScene(new fiveAttackWater(primaryStage).getScene()));
+        oneButton.setOnAction(e -> {
+            conviction++; // Increment conviction when this button is clicked
+            updateStats(); // Update stats display
+            primaryStage.setScene(new fiveAttackWater(primaryStage).getScene());
+        });
+
 
         Button twoButton = new Button("Dodge attack");
-        madness++;
         twoButton.setStyle("-fx-font-size: 14px;");
-        twoButton.setOnAction(e -> primaryStage.setScene(new fiveDodge(primaryStage).getScene()));
+        twoButton.setOnAction(e -> {
+            madness++; // Increment madness when this button is clicked
+            updateStats(); // Update stats display
+            primaryStage.setScene(new fiveDodge(primaryStage).getScene());
+        });
+
 //TODO What should be improved: Conviction++ and Madness++ are outside the button actions, meaning they are incremented when the five1Morning constructer runs, not when the button is clicked.
         //TODO How to improve it: TODO move the stat increments inside the setonAction handlers of the repective buttons. Then, call the updateStats() method to ensure the changes are displayed.
 
