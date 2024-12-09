@@ -10,8 +10,9 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-import javax.swing.*;
-
+/**
+ * Class representing the scenario where the player attacks with water again (more).
+ */
 public class fiveAttackWaterMore {
     private Scene scene;
     private int conviction; // Variable to track the conviction stat
@@ -28,6 +29,10 @@ public class fiveAttackWaterMore {
     private final Button eightButton;
     private final Button continueButton; // Text to display the stats
 
+    /**
+     * Constructor for the second attack water scene.
+     * @param primaryStage The primary stage where the scene is displayed.
+     */
     public fiveAttackWaterMore(Stage primaryStage) {
         // Initial game status text
         gameStatus = new Text("You know that you conserved your water usage, yet decided to attack with water. You wasted 10% of the water on Ozzy the Ostrich; although barely functioning, you’ve at least disabled his ability to move fast.\n" +

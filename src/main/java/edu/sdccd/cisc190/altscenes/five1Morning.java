@@ -7,6 +7,9 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+/**
+ * Class representing the morning scene where the player interacts with Mika the Monkey.
+ */
 public class five1Morning {
     private Scene scene;
     private int conviction; // Variable to track the conviction stat
@@ -14,6 +17,10 @@ public class five1Morning {
     private final Text gameStatus;
     private final Text statsText;       // Text to display the stats
 
+    /**
+     * Constructor for the morning scene.
+     * @param primaryStage The primary stage where the scene is displayed.
+     */
     public five1Morning(Stage primaryStage) {
         // Initial game status text
         gameStatus = new Text("You are tired of these loud noises; still unsure if it’s hallucinations or reality, you just want to turn the power back on.\n" +
@@ -23,18 +30,21 @@ public class five1Morning {
                 "You feel relieved. Turn back, you see Mika the Monkey, standing still, getting ready to attack you.\n");
         gameStatus.setStyle("-fx-font-size: 14px; -fx-font-weight: bold;");
 
-        // Text for displaying stats (conviction and madness)
+        /**
+            *Text for displaying stats (conviction and madness)
+            */
         statsText = new Text("Conviction: " + conviction + " | Madness: " + madness);
         statsText.setStyle("-fx-font-size: 14px; -fx-font-weight: bold;");
         // Button actions
         Button oneButton = new Button("Attack with a water bottle (50% remaining)");
-        conviction++;
+        conviction++; // TODO: Avoid modifying variables like conviction directly in constructor
         oneButton.setStyle("-fx-font-size: 14px;");
-        oneButton.setOnAction(e -> gameStatus.setText(""));
+        oneButton.setOnAction(e -> gameStatus.setText("")); // TODO: Add a meaningful action since there is nothing in the quotations
         oneButton.setOnAction(e -> primaryStage.setScene(new fiveAttackWater(primaryStage).getScene()));
 
+         // TODO: Refactor to avoid increasing conviction and madness directly inside constructors.
         Button twoButton = new Button("Dodge attack");
-        madness++;
+        madness++; // TODO: Avoid modifying variables like madness directly in constructor
         twoButton.setStyle("-fx-font-size: 14px;");
         twoButton.setOnAction(e -> primaryStage.setScene(new fiveDodge(primaryStage).getScene()));
 
@@ -58,12 +68,17 @@ public class five1Morning {
         scene = new Scene(layout, 400, 400);
     }
 
-    // Method to update the stats text
+    /**
+    * Updates the stats text.
+    */
     private void updateStats() {
         statsText.setText("Conviction: " + conviction + " | Madness: " + madness);
     }
 
-    // Getter for the scene
+    /**
+    * Getter for the scene
+    * @return for the scene of the morning scenario.
+    */
     public Scene getScene() {
         return scene;
     }

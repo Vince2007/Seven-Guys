@@ -10,8 +10,9 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-import javax.swing.*;
-
+/**
+ * Class representing the scenario where the player attacks with water.
+ */
 public class fiveAttackWater {
     private Scene scene;
     private int conviction; // Variable to track the conviction stat
@@ -27,6 +28,10 @@ public class fiveAttackWater {
     private final Button sevenButton;
     private final Button continueButton; // Text to display the stats
 
+    /**
+     * Constructor for the Attack Water scene.
+     * @param primaryStage The primary stage where the scene is displayed.
+     */
     public fiveAttackWater(Stage primaryStage) {
         // Initial game status text
         gameStatus = new Text("You attacked Mika the Monkey by splashing water.\n" +
@@ -41,7 +46,6 @@ public class fiveAttackWater {
         statsText.setStyle("-fx-font-size: 14px; -fx-font-weight: bold;");
 
         // Initialize the buttons
-
         oneButton = new Button("Attack with water (25% remaining)");
         twoButton = new Button("Dodge attack");
         threeButton = new Button("Left");
@@ -51,7 +55,7 @@ public class fiveAttackWater {
         sevenButton = new Button("Endings");
         continueButton = new Button("Transition to 6 AM");
 
-        // Set initial visibility of some buttons
+        // TODO: Combine button visibility code to make it cleaner
         threeButton.setVisible(false);
         fourButton.setVisible(false);
         fiveButton.setVisible(false);
@@ -59,16 +63,11 @@ public class fiveAttackWater {
         sevenButton.setVisible(false);
         continueButton.setVisible(false);
 
-        // Button actions
+        // Button actions and logic
         oneButton.setOnAction(e -> {
-            // Update game status text for the twoButton scenario
             updateStats();  // Update the stats text
-
-            // Show the additional choice buttons
-
-            // Hide the other buttons to focus on choices
             sixButton.setVisible(true);
-            hideOtherButtons();
+            hideOtherButtons(); // Hide others to focus on next choice
         });
 
         twoButton.setOnAction(e -> {
@@ -76,17 +75,14 @@ public class fiveAttackWater {
             gameStatus.setText("You slid under Ozzy the Ostrich and you ran as fast as you could, making your way out of the backstage and into the party area.\n" +
                     "However, he’s chasing after you.\n" +
                     "You see the party area and you see 3 rows that determine where you should go past.\n");
-            updateStats();  // Update the stats text
-
-            // Show the additional choice buttons
+            updateStats();  // Update stats after action
             threeButton.setVisible(true);
             fourButton.setVisible(true);
             fiveButton.setVisible(true);
-
-            // Hide the other buttons to focus on choices
-            hideOtherButtons();
+            hideOtherButtons(); // Hide the other buttons to focus on choices
         });
 
+        // TODO: Simplify the button actions for the specific scenarios
         // Action for the threeButton
         threeButton.setOnAction(e -> {
             gameStatus.setText("You successfully dodged Daniel the Dog’s attack. But Ozzy the Ostrich caught up to you.");
@@ -129,11 +125,7 @@ public class fiveAttackWater {
 
         // Create the BorderPane layout
         BorderPane layout = new BorderPane();
-
-        // Add game status text to the top
         layout.setTop(gameStatus);
-
-        // Add stats text below the game status text
         layout.setBottom(statsText);
 
         // Create a VBox to arrange buttons vertically
